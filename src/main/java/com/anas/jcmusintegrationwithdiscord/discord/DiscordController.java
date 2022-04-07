@@ -1,5 +1,6 @@
 package com.anas.jcmusintegrationwithdiscord.discord;
 
+import com.anas.jcmusintegrationwithdiscord.configs.Configs;
 import com.anas.jcmusintegrationwithdiscord.track.Tag;
 import com.anas.jcmusintegrationwithdiscord.track.Track;
 import com.anas.jcmusintegrationwithdiscord.track.TrackInfo;
@@ -30,15 +31,21 @@ public class DiscordController {
     }
 
     public void updateActivity(Track track) {
-        if (track.getTrackInfo().getStatus() == TrackInfo.Status.PLAYING) {
-            DiscordRichPresence.Builder builder = new DiscordRichPresence.Builder("Now playing");
-            builder.setDetails(track.getTag(Tag.ARTIST) + " - " + track.getTag(Tag.TITLE));
-            builder.setBigImage("cmus", icon);
-            builder.setStartTimestamps(startTime);
-
-            DiscordRPC.discordUpdatePresence(builder.build());
-        } else { // If track is paused or stopped then clear the presence
+        if (track.getTrackInfo().getStatus() == TrackInfo.Status.STOPPED) {
+            // If track is paused or stopped then clear the presence
             DiscordRPC.discordClearPresence();
+            return;
         }
+        DiscordRichPresence.Builder builder = new DiscordRichPresence.Builder("Now playing");
+        builder.setDetails(track.getTag(Tag.ARTIST) + " - " + track.getTag(Tag.TITLE));
+        builder.setBigImage(Configs.getInstance().getCaverImage(), icon);
+        builder.setStartTimestamps(startTime);
+        if (track.getTrackInfo().getStatus() == TrackInfo.Status.PLAYING) {
+            builder.setSmallImage(Configs.getInstance().getPlayIcon(), "Playing");
+        } else if (track.getTrackInfo().getStatus() == TrackInfo.Status.PAUSED) {
+            builder.setSmallImage(Configs.getInstance().getPauseIcon(), "Paused");
+        }
+
+        DiscordRPC.discordUpdatePresence(builder.build());
     }
 }

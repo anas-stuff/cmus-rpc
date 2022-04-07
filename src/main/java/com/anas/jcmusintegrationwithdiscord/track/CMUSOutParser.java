@@ -18,7 +18,7 @@ public class CMUSOutParser {
                 key = Tag.getTag(parts[1]);
                 if (key == null)
                     continue; // skip unknown tags
-                value = parts[2];
+                value = line.substring(line.indexOf(parts[2]));
             }
                 map.put(key, value);
         }

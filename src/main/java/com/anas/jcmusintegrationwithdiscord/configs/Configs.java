@@ -7,13 +7,19 @@ import java.util.Map;
 
 public class Configs {
     private int interval;
+    private String caverImage, playIcon, pauseIcon;
     private Map<Displayable, Boolean> display;
+    private boolean debug;
 
     private static Configs instance;
 
     private Configs() {
         interval = 1000; // 1 second
         display = new HashMap<>();
+        caverImage = "cmus_normal_bink";
+        playIcon = "play_icon_1";
+        pauseIcon = "pause_icon_2";
+        debug = false;
     }
 
     public static Configs getInstance() {
@@ -37,5 +43,29 @@ public class Configs {
 
     public void setDisplay(Map<Displayable, Boolean> display) {
         this.display = display;
+    }
+
+    public String getCaverImage() {
+        return caverImage;
+    }
+
+    public void setCaverImage(String caverImage) {
+        this.caverImage = caverImage;
+    }
+
+    public String getPlayIcon() {
+        return playIcon;
+    }
+
+    public void setPlayIcon(String playIcon) {
+        this.playIcon = playIcon;
+    }
+
+    public String getPauseIcon() {
+        return pauseIcon;
+    }
+
+    public void setPauseIcon(String pauseIcon) {
+        this.pauseIcon = pauseIcon;
     }
 }
