@@ -9,12 +9,10 @@ import net.arikia.dev.drpc.DiscordRichPresence;
 
 public class DiscordController {
     private final String ID;
-    private final String icon;
     private long startTime;
 
-    public DiscordController(String ID, String icon) {
+    public DiscordController(String ID) {
         this.ID = ID;
-        this.icon = icon;
         setup();
         startTime = System.currentTimeMillis();
     }
@@ -42,7 +40,7 @@ public class DiscordController {
                 PartFormatter.format(ConfigsManger.getInstance().getConfigs().getPartOneFormat(), track));
 
         builder.setDetails(PartFormatter.format(ConfigsManger.getInstance().getConfigs().getPartTowFormat(), track));
-        builder.setBigImage(ConfigsManger.getInstance().getConfigs().getCaverImage(), icon);
+        builder.setBigImage(ConfigsManger.getInstance().getConfigs().getCaverImage(), "CMUS Player");
         builder.setStartTimestamps(startTime);
         if (track.getTrackInfo().getStatus() == TrackInfo.Status.PLAYING) {
             builder.setSmallImage(ConfigsManger.getInstance().getConfigs().getPlayIcon(), "Playing");

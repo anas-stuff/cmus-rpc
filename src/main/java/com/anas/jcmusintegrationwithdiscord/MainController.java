@@ -7,7 +7,7 @@ public class MainController {
     private final DiscordController discordController;
 
     public MainController(String... args) {
-        discordController = new DiscordController("961407969986232380", "CMUS");
+        discordController = new DiscordController("961407969986232380");
         start();
     }
 
