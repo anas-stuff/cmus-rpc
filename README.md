@@ -14,6 +14,13 @@ I know the name is terrible but that's where I'm at right now :P
 - You can edit the config.json file to change the settings [click here to more details](./Config.md)
 - You can use the arguments to change the settings [click here to more details](./Arguments.md)
 
+### How to do auto run when you start the cmus
+- Put the following in your shellrc file e.g. `.bashrc` or `.zshrc`
+```bash
+    alias JCmusIntegrationWithDiscord = '/usr/lib/jvm/jdk-18/bin/java -jar path/to/jar/JCmusIntegrationWithDiscord.jar'
+    alias cmus = 'JCmusIntegrationWithDiscord &>/dev/null & cmus'
+```
+
 ### I use
 - [`cmus-remote` tool](https://github.com/cmus/cmus) to the make a query to the cmus
 - [Discord-RPC library](https://github.com/Vatuu/discord-rpc) to send the information to Discord
