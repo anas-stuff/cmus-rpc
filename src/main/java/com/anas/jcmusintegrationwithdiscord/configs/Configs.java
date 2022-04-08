@@ -9,17 +9,25 @@ public class Configs {
     private int interval;
     private String caverImage, playIcon, pauseIcon;
     private Map<Displayable, Boolean> display;
+    private int sleepTime;
     private boolean debug;
 
     private static Configs instance;
 
     private Configs() {
         interval = 1000; // 1 second
+        sleepTime = 300000; // 5 minutes
         display = new HashMap<>();
-        caverImage = "cmus_normal_bink";
+        caverImage = "cmus";
         playIcon = "play_icon_1";
         pauseIcon = "pause_icon_2";
-        debug = false;
+        debug = true;
+
+        initDisplay();
+    }
+
+    private void initDisplay() {
+
     }
 
     public static Configs getInstance() {
@@ -67,5 +75,21 @@ public class Configs {
 
     public void setPauseIcon(String pauseIcon) {
         this.pauseIcon = pauseIcon;
+    }
+
+    public boolean isDebug() {
+        return debug;
+    }
+
+    public void setDebug(boolean debug) {
+        this.debug = debug;
+    }
+
+    public int getSleepTime() {
+        return sleepTime;
+    }
+
+    public void setSleepTime(int sleepTime) {
+        this.sleepTime = sleepTime;
     }
 }

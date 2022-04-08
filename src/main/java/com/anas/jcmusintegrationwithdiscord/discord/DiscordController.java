@@ -22,7 +22,8 @@ public class DiscordController {
     private void setup() {
         // Discord shutdown hook
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            System.out.println("Shutting down Discord controller...");
+            if (Configs.getInstance().isDebug())
+                System.out.println("Shutting down Discord controller...");
             DiscordRPC.discordShutdown();
         }));
 
@@ -31,12 +32,14 @@ public class DiscordController {
     }
 
     public void updateActivity(Track track) {
-        if (track.getTrackInfo().getStatus() == TrackInfo.Status.STOPPED) {
-            // If track is paused or stopped then clear the presence
+        if (track == null ||
+                track.getTrackInfo().getStatus() == TrackInfo.Status.STOPPED) {
+            // If track is paused for while of time or track is stopped, clear the activity
             DiscordRPC.discordClearPresence();
             return;
         }
-        DiscordRichPresence.Builder builder = new DiscordRichPresence.Builder("Now playing");
+        DiscordRichPresence.Builder builder = new DiscordRichPresence.Builder(track.timeToString());
+
         builder.setDetails(track.getTag(Tag.ARTIST) + " - " + track.getTag(Tag.TITLE));
         builder.setBigImage(Configs.getInstance().getCaverImage(), icon);
         builder.setStartTimestamps(startTime);

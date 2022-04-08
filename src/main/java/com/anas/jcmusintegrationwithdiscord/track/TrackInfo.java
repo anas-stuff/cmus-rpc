@@ -1,11 +1,12 @@
 package com.anas.jcmusintegrationwithdiscord.track;
 
 import java.io.File;
+import java.util.Timer;
 
 public class TrackInfo {
     private Status status;
     private File file;
-    private int duration, position;
+    private TrackTime duration, currentTime;
 
     public static enum Status {
         PLAYING,
@@ -23,9 +24,9 @@ public class TrackInfo {
             String[] parts = line.split(" ");
              switch (parts[0].toLowerCase()) {
                  case "status" -> status = Status.valueOf(parts[1].toUpperCase());
-                 case "file" -> file = new File(parts[1]);
-                 case "duration" -> duration = Integer.parseInt(parts[1]);
-                 case "position" -> position = Integer.parseInt(parts[1]);
+                 case "file" -> file = new File(line.substring(line.indexOf("file ")));
+                 case "duration" -> duration = new TrackTime(Integer.parseInt(parts[1]));
+                 case "position" -> currentTime = new TrackTime(Integer.parseInt(parts[1]));
                  default -> {
                      break loop; // break the loop because we don't need to parse the rest of the lines
                  }
@@ -45,15 +46,28 @@ public class TrackInfo {
         return file;
     }
 
-    public int getDuration() {
+    public TrackTime getDuration() {
         return duration;
     }
 
-    public int getPosition() {
-        return position;
+    public TrackTime getCurrentTime() {
+        return currentTime;
     }
 
-    public void setPosition(int position) {
-        this.position = position;
+    public void setCurrentTime(TrackTime currentTime) {
+        this.currentTime = currentTime;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        TrackInfo track = (TrackInfo) o;
+        return ((this.currentTime != null && track.getCurrentTime() != null) &&
+                (this.currentTime.getMinutes() == track.getCurrentTime().getMinutes() &&
+                this.currentTime.getSeconds() == track.getCurrentTime().getSeconds())) &&
+                ((this.duration != null && track.getDuration() != null) &&
+                (this.duration.getMinutes() == track.getDuration().getMinutes() &&
+                this.duration.getSeconds() == track.getDuration().getSeconds())) &&
+                ((this.file != null && track.getFile() != null) &&
+                this.getFile().getName().equals(track.getFile().getName()));
     }
 }
