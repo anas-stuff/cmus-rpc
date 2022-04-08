@@ -5,7 +5,8 @@ import java.io.File;
 public class TrackInfo {
     private Status status;
     private File file;
-    private TrackTime duration, currentTime;
+    private TrackTime duration,
+            currentTime;
 
     public static enum Status {
         PLAYING,
