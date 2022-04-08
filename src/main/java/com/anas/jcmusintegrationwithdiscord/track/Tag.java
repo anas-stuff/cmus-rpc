@@ -1,8 +1,6 @@
 package com.anas.jcmusintegrationwithdiscord.track;
 
-import com.anas.jcmusintegrationwithdiscord.Displayable;
-
-public enum Tag implements Displayable {
+public enum Tag {
     TITLE,
     ALBUM,
     ARTIST,
@@ -24,10 +22,5 @@ public enum Tag implements Displayable {
             }
         }
         return null;
-    }
-
-    @Override
-    public String getDisplayName() {
-        return this.name().replaceAll("_", " ");
     }
 }
