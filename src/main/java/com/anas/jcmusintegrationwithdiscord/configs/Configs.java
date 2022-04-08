@@ -1,5 +1,7 @@
 package com.anas.jcmusintegrationwithdiscord.configs;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 public class Configs {
     private int interval;
     private String caverImage, playIcon, pauseIcon;
@@ -7,25 +9,19 @@ public class Configs {
     private int sleepTime;
     private boolean debug;
 
-    private static Configs instance;
+    protected Configs() {
+        initialize();
+    }
 
-    private Configs() {
+    private void initialize() {
         interval = 1000; // 1 second
         sleepTime = 300000; // 5 minutes
         caverImage = "cmus";
-        playIcon = "play_icon_1";
+        playIcon = "play_icon_2";
         pauseIcon = "pause_icon_2";
         partOneFormat = "%artist% - %title%";
         partTowFormat = "%album%";
-        debug = true;
-    }
-
-
-    public static Configs getInstance() {
-        if (instance == null) {
-            instance = new Configs();
-        }
-        return instance;
+        debug = false;
     }
 
     public int getInterval() {
@@ -68,20 +64,12 @@ public class Configs {
         this.partOneFormat = partOneFormat;
     }
 
-    public String getPartTwoFormat() {
+    public String getPartTowFormat() {
         return partTowFormat;
     }
 
     public void setPartTowFormat(String partTowFormat) {
         this.partTowFormat = partTowFormat;
-    }
-
-    public boolean isDebug() {
-        return debug;
-    }
-
-    public void setDebug(boolean debug) {
-        this.debug = debug;
     }
 
     public int getSleepTime() {
@@ -90,5 +78,13 @@ public class Configs {
 
     public void setSleepTime(int sleepTime) {
         this.sleepTime = sleepTime;
+    }
+
+    public boolean isDebug() {
+        return debug;
+    }
+
+    public void setDebug(boolean debug) {
+        this.debug = debug;
     }
 }

@@ -16,7 +16,6 @@ public class PartFormatter {
                 .replaceAll("%disc number%", track.getTag(Tag.DISC_NUMBER))
                 .replaceAll("%track number%", track.getTag(Tag.TRACK_NUMBER))
                 .replaceAll("%track number%", track.getTag(Tag.TRACK_NUMBER))
-
                 // Basic info
                 .replaceAll("%file%", track.getTrackInfo().getFile().getName())
                 .replaceAll("%file path%", track.getTrackInfo().getFile().getAbsolutePath())

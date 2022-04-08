@@ -1,15 +1,15 @@
 package com.anas.jcmusintegrationwithdiscord.discord;
 
 import com.anas.jcmusintegrationwithdiscord.PartFormatter;
-import com.anas.jcmusintegrationwithdiscord.configs.Configs;
+import com.anas.jcmusintegrationwithdiscord.configs.ConfigsManger;
 import com.anas.jcmusintegrationwithdiscord.track.Track;
 import com.anas.jcmusintegrationwithdiscord.track.TrackInfo;
 import net.arikia.dev.drpc.DiscordRPC;
 import net.arikia.dev.drpc.DiscordRichPresence;
 
 public class DiscordController {
-    private String ID;
-    private String icon;
+    private final String ID;
+    private final String icon;
     private long startTime;
 
     public DiscordController(String ID, String icon) {
@@ -22,7 +22,7 @@ public class DiscordController {
     private void setup() {
         // Discord shutdown hook
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            if (Configs.getInstance().isDebug())
+            if (ConfigsManger.getInstance().isDebug())
                 System.out.println("Shutting down Discord controller...");
             DiscordRPC.discordShutdown();
         }));
@@ -39,15 +39,15 @@ public class DiscordController {
             return;
         }
         DiscordRichPresence.Builder builder = new DiscordRichPresence.Builder(
-                PartFormatter.format(Configs.getInstance().getPartOneFormat(), track));
+                PartFormatter.format(ConfigsManger.getInstance().getConfigs().getPartOneFormat(), track));
 
-        builder.setDetails(PartFormatter.format(Configs.getInstance().getPartTwoFormat(), track));
-        builder.setBigImage(Configs.getInstance().getCaverImage(), icon);
+        builder.setDetails(PartFormatter.format(ConfigsManger.getInstance().getConfigs().getPartTowFormat(), track));
+        builder.setBigImage(ConfigsManger.getInstance().getConfigs().getCaverImage(), icon);
         builder.setStartTimestamps(startTime);
         if (track.getTrackInfo().getStatus() == TrackInfo.Status.PLAYING) {
-            builder.setSmallImage(Configs.getInstance().getPlayIcon(), "Playing");
+            builder.setSmallImage(ConfigsManger.getInstance().getConfigs().getPlayIcon(), "Playing");
         } else if (track.getTrackInfo().getStatus() == TrackInfo.Status.PAUSED) {
-            builder.setSmallImage(Configs.getInstance().getPauseIcon(), "Paused");
+            builder.setSmallImage(ConfigsManger.getInstance().getConfigs().getPauseIcon(), "Paused");
         }
 
         DiscordRPC.discordUpdatePresence(builder.build());

@@ -1,6 +1,6 @@
 package com.anas.jcmusintegrationwithdiscord.teracke;
 
-import com.anas.jcmusintegrationwithdiscord.configs.Configs;
+import com.anas.jcmusintegrationwithdiscord.configs.ConfigsManger;
 import com.anas.jcmusintegrationwithdiscord.discord.DiscordController;
 import com.anas.jcmusintegrationwithdiscord.shell.Responce;
 import com.anas.jcmusintegrationwithdiscord.shell.Shell;
@@ -49,10 +49,10 @@ public class CMUSTracker implements Runnable {
     }
 
     private void resetIntervalTime() {
-        Configs.getInstance().setInterval(Configs.getInstance().getInterval() / 2);
+        ConfigsManger.getInstance().getConfigs().setInterval(ConfigsManger.getInstance().getConfigs().getInterval() / 2);
         intervalTimeIncrement = false;
-        if (Configs.getInstance().isDebug())
-            System.out.println("Interval decremented to " + Configs.getInstance().getInterval());
+        if (ConfigsManger.getInstance().isDebug())
+            System.out.println("Interval decremented to " + ConfigsManger.getInstance().getConfigs().getInterval());
     }
 
     private void updateActivity(Track track, Track newTrack) {
@@ -60,43 +60,43 @@ public class CMUSTracker implements Runnable {
         if (discordController != null) {
             if (sleepTime > 0) {
                 sleepTime = 0;
-                if (Configs.getInstance().isDebug())
+                if (ConfigsManger.getInstance().isDebug())
                     System.out.println("Restart");
             }
             try {
             discordController.updateActivity(track);
             } catch (NullPointerException e) {
-                if (Configs.getInstance().isDebug())
+                if (ConfigsManger.getInstance().isDebug())
                     e.printStackTrace();
             }
         }
     }
 
     private void sleep() {
-        sleepTime += Configs.getInstance().getInterval();
-        if (sleepTime >= Configs.getInstance().getSleepTime()) {
+        sleepTime += ConfigsManger.getInstance().getConfigs().getInterval();
+        if (sleepTime >= ConfigsManger.getInstance().getConfigs().getSleepTime()) {
             discordController.updateActivity(null);
-            if (Configs.getInstance().isDebug())
+            if (ConfigsManger.getInstance().isDebug())
                 System.out.println("Sleeping...");
         }
     }
 
     private void CMUSNotRunning() {
-        if (Configs.getInstance().isDebug())
+        if (ConfigsManger.getInstance().isDebug())
             System.out.println("CMUS not running");
         if (!intervalTimeIncrement) {
-            Configs.getInstance().setInterval(Configs.getInstance().getInterval() * 2);
+            ConfigsManger.getInstance().getConfigs().setInterval(ConfigsManger.getInstance().getConfigs().getInterval() * 2);
             intervalTimeIncrement = true;
             discordController.updateActivity(null);
-            if (Configs.getInstance().isDebug())
-                System.out.println("Interval time incremented to " + Configs.getInstance().getInterval());
+            if (ConfigsManger.getInstance().isDebug())
+                System.out.println("Interval time incremented to " + ConfigsManger.getInstance().getConfigs().getInterval());
         }
     }
 
     private void pauseLoop() {
         // Sleep
         try {
-            Thread.sleep(Configs.getInstance().getInterval());
+            Thread.sleep(ConfigsManger.getInstance().getConfigs().getInterval());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
