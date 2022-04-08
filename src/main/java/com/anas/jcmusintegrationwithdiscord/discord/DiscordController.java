@@ -1,7 +1,7 @@
 package com.anas.jcmusintegrationwithdiscord.discord;
 
+import com.anas.jcmusintegrationwithdiscord.PartFormatter;
 import com.anas.jcmusintegrationwithdiscord.configs.Configs;
-import com.anas.jcmusintegrationwithdiscord.track.Tag;
 import com.anas.jcmusintegrationwithdiscord.track.Track;
 import com.anas.jcmusintegrationwithdiscord.track.TrackInfo;
 import net.arikia.dev.drpc.DiscordRPC;
@@ -38,9 +38,10 @@ public class DiscordController {
             DiscordRPC.discordClearPresence();
             return;
         }
-        DiscordRichPresence.Builder builder = new DiscordRichPresence.Builder(track.timeToString());
+        DiscordRichPresence.Builder builder = new DiscordRichPresence.Builder(
+                PartFormatter.format(Configs.getInstance().getPartOneFormat(), track));
 
-        builder.setDetails(track.getTag(Tag.ARTIST) + " - " + track.getTag(Tag.TITLE));
+        builder.setDetails(PartFormatter.format(Configs.getInstance().getPartTwoFormat(), track));
         builder.setBigImage(Configs.getInstance().getCaverImage(), icon);
         builder.setStartTimestamps(startTime);
         if (track.getTrackInfo().getStatus() == TrackInfo.Status.PLAYING) {

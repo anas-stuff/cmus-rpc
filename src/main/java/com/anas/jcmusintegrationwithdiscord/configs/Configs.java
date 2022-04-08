@@ -1,14 +1,9 @@
 package com.anas.jcmusintegrationwithdiscord.configs;
 
-import com.anas.jcmusintegrationwithdiscord.Displayable;
-
-import java.util.HashMap;
-import java.util.Map;
-
 public class Configs {
     private int interval;
     private String caverImage, playIcon, pauseIcon;
-    private Map<Displayable, Boolean> display;
+    private String partOneFormat, partTowFormat;
     private int sleepTime;
     private boolean debug;
 
@@ -17,18 +12,14 @@ public class Configs {
     private Configs() {
         interval = 1000; // 1 second
         sleepTime = 300000; // 5 minutes
-        display = new HashMap<>();
         caverImage = "cmus";
         playIcon = "play_icon_1";
         pauseIcon = "pause_icon_2";
+        partOneFormat = "%artist% - %title%";
+        partTowFormat = "%album%";
         debug = true;
-
-        initDisplay();
     }
 
-    private void initDisplay() {
-
-    }
 
     public static Configs getInstance() {
         if (instance == null) {
@@ -43,14 +34,6 @@ public class Configs {
 
     public void setInterval(int interval) {
         this.interval = interval;
-    }
-
-    public Map<Displayable, Boolean> getDisplay() {
-        return display;
-    }
-
-    public void setDisplay(Map<Displayable, Boolean> display) {
-        this.display = display;
     }
 
     public String getCaverImage() {
@@ -75,6 +58,22 @@ public class Configs {
 
     public void setPauseIcon(String pauseIcon) {
         this.pauseIcon = pauseIcon;
+    }
+
+    public String getPartOneFormat() {
+        return partOneFormat;
+    }
+
+    public void setPartOneFormat(String partOneFormat) {
+        this.partOneFormat = partOneFormat;
+    }
+
+    public String getPartTwoFormat() {
+        return partTowFormat;
+    }
+
+    public void setPartTowFormat(String partTowFormat) {
+        this.partTowFormat = partTowFormat;
     }
 
     public boolean isDebug() {
