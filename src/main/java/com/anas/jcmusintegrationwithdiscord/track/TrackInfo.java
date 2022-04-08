@@ -1,5 +1,7 @@
 package com.anas.jcmusintegrationwithdiscord.track;
 
+import org.jetbrains.annotations.Contract;
+
 import java.io.File;
 
 public class TrackInfo {
@@ -56,10 +58,11 @@ public class TrackInfo {
     public void setCurrentTime(TrackTime currentTime) {
         this.currentTime = currentTime;
     }
-
     @Override
     public boolean equals(Object o) {
-        TrackInfo track = (TrackInfo) o;
+        if (o == null) return false;
+        if (!(o instanceof TrackInfo track)) return false;
+
         return ((this.currentTime != null && track.getCurrentTime() != null) &&
                 (this.currentTime.getMinutes() == track.getCurrentTime().getMinutes() &&
                 this.currentTime.getSeconds() == track.getCurrentTime().getSeconds())) &&
