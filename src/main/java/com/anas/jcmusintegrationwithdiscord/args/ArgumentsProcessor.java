@@ -30,22 +30,24 @@ public class ArgumentsProcessor {
         } else if (commandLine.hasOption("v")) {
             System.out.println("Version: " + MainController.VERSION);
             System.exit(0);
-        } else if (commandLine.hasOption("i")) {
-            ConfigsManger.getInstance().getConfigs().setInterval(Integer.parseInt(commandLine.getOptionValue("i")) * 1000);
-        } else if (commandLine.hasOption("s")) {
-            ConfigsManger.getInstance().getConfigs()
-                    .setSleepTime(Integer.parseInt(commandLine.getOptionValue("s")) * 1000);
-        } else if (commandLine.hasOption("partOneFormat")) {
-            ConfigsManger.getInstance().getConfigs().setPartOneFormat(commandLine.getOptionValue("partOneFormat"));
-        } else if (commandLine.hasOption("partTowFormat")) {
-            ConfigsManger.getInstance().getConfigs().setPartTowFormat(commandLine.getOptionValue("partTowFormat"));
         } else {
-            if (args.length != 0)
-                showHelp();
-        }
+            if (commandLine.hasOption("i")) {
+                ConfigsManger.getInstance().getConfigs().setInterval(Integer.parseInt(commandLine.getOptionValue("i")) * 1000);
+            }
+            if (commandLine.hasOption("s")) {
+                ConfigsManger.getInstance().getConfigs()
+                        .setSleepTime(Integer.parseInt(commandLine.getOptionValue("s")) * 1000);
+            }
+            if (commandLine.hasOption("partOneFormat")) {
+                ConfigsManger.getInstance().getConfigs().setPartOneFormat(commandLine.getOptionValue("partOneFormat"));
+            }
+            if (commandLine.hasOption("partTowFormat")) {
+                ConfigsManger.getInstance().getConfigs().setPartTowFormat(commandLine.getOptionValue("partTowFormat"));
+            }
 
-        if (commandLine.hasOption("d")) {
-            ConfigsManger.getInstance().setDebug(true);
+            if (commandLine.hasOption("d")) {
+                ConfigsManger.getInstance().setDebug(true);
+            }
         }
     }
 
