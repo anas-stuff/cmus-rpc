@@ -5,7 +5,7 @@ import com.anas.jcmusintegrationwithdiscord.discord.DiscordController;
 import com.anas.jcmusintegrationwithdiscord.teracke.CMUSTracker;
 
 public class MainController {
-    public static final String VERSION = "0.0.1 - DEV";
+    public static final String VERSION = "1.0.0";
     private final DiscordController discordController;
 
     public MainController(String... args) {
