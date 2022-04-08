@@ -21,6 +21,6 @@ public class PartFormatterHelper {
                 .replaceAll("%file path%", track.getTrackInfo().getFile().getAbsolutePath())
                 .replaceAll("%file size%", track.getTrackInfo().getFile().length() + "")
                 .replaceAll("%duration%", track.getTrackInfo().getDuration() + "")
-                .replaceAll("%current postion%", track.getTrackInfo().getDuration() + "");
+                .replaceAll("%current position%", track.getTrackInfo().getCurrentTime() + "");
     }
 }
