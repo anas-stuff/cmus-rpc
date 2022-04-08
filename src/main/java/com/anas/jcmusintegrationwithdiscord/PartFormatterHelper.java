@@ -3,7 +3,7 @@ package com.anas.jcmusintegrationwithdiscord;
 import com.anas.jcmusintegrationwithdiscord.track.Tag;
 import com.anas.jcmusintegrationwithdiscord.track.Track;
 
-public class PartFormatter {
+public class PartFormatterHelper {
     public static String format(String partFormat, Track track) {
         return partFormat
                 // Tags

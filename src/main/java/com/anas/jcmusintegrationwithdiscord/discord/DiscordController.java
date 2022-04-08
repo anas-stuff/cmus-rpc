@@ -1,6 +1,6 @@
 package com.anas.jcmusintegrationwithdiscord.discord;
 
-import com.anas.jcmusintegrationwithdiscord.PartFormatter;
+import com.anas.jcmusintegrationwithdiscord.PartFormatterHelper;
 import com.anas.jcmusintegrationwithdiscord.configs.ConfigsManger;
 import com.anas.jcmusintegrationwithdiscord.track.Track;
 import com.anas.jcmusintegrationwithdiscord.track.TrackInfo;
@@ -46,9 +46,9 @@ public class DiscordController {
 
     private DiscordRichPresence buildRichPresence(Track track) {
         DiscordRichPresence.Builder builder = new DiscordRichPresence.Builder(
-                PartFormatter.format(ConfigsManger.getInstance().getConfigs().getPartTowFormat(), track));
+                PartFormatterHelper.format(ConfigsManger.getInstance().getConfigs().getPartTowFormat(), track));
 
-        builder.setDetails(PartFormatter.format(ConfigsManger.getInstance().getConfigs().getPartOneFormat(), track));
+        builder.setDetails(PartFormatterHelper.format(ConfigsManger.getInstance().getConfigs().getPartOneFormat(), track));
         builder.setBigImage(ConfigsManger.getInstance().getConfigs().getCaverImage(), "CMUS Player");
         builder.setStartTimestamps(startTime);
         if (track.getTrackInfo().getStatus() == TrackInfo.Status.PLAYING) {
