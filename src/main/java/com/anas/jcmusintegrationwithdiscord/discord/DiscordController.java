@@ -38,10 +38,13 @@ public class DiscordController {
             return;
         }
         if (startTime == -1) { // If start time is not set, set it
-            startTime = System.currentTimeMillis();
-            if (ConfigsManger.getInstance().isDebug())
-                System.out.println("Start time set to " + startTime);
+            updateStartTime();
         }
+
+        DiscordRPC.discordUpdatePresence(buildRichPresence(track));
+    }
+
+    private DiscordRichPresence buildRichPresence(Track track) {
         DiscordRichPresence.Builder builder = new DiscordRichPresence.Builder(
                 PartFormatter.format(ConfigsManger.getInstance().getConfigs().getPartTowFormat(), track));
 
@@ -53,7 +56,12 @@ public class DiscordController {
         } else if (track.getTrackInfo().getStatus() == TrackInfo.Status.PAUSED) {
             builder.setSmallImage(ConfigsManger.getInstance().getConfigs().getPauseIcon(), "Paused");
         }
+        return builder.build();
+    }
 
-        DiscordRPC.discordUpdatePresence(builder.build());
+    private void updateStartTime() {
+        startTime = System.currentTimeMillis();
+        if (ConfigsManger.getInstance().isDebug())
+            System.out.println("Start time set to " + startTime);
     }
 }
