@@ -1,7 +1,5 @@
 package com.anas.jcmusintegrationwithdiscord.configs;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 public class Configs {
     private int interval;
     private String caverImage, playIcon, pauseIcon;
