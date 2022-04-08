@@ -42,7 +42,7 @@ public class CMUSTracker implements Runnable {
                     sleep();
                 }
             } else {
-                CMUSNotRunning();
+                cmusNotRunning();
             }
             pauseLoop();
         }
@@ -81,7 +81,7 @@ public class CMUSTracker implements Runnable {
         }
     }
 
-    private void CMUSNotRunning() {
+    private void cmusNotRunning() {
         if (ConfigsManger.getInstance().isDebug())
             System.out.println("CMUS not running");
         if (!intervalTimeIncrement) {
