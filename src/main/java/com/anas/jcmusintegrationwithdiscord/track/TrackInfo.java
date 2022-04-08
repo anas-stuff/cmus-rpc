@@ -1,7 +1,6 @@
 package com.anas.jcmusintegrationwithdiscord.track;
 
 import java.io.File;
-import java.util.Timer;
 
 public class TrackInfo {
     private Status status;
