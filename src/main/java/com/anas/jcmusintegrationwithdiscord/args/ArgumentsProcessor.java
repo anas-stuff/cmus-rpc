@@ -26,7 +26,7 @@ public class ArgumentsProcessor {
             } else if (commandLine.hasOption("d")) {
                 ConfigsManger.getInstance().setDebug(true);
             } else if (commandLine.hasOption("i")) {
-                ConfigsManger.getInstance().getConfigs().setInterval(Integer.parseInt(commandLine.getOptionValue("i")));
+                ConfigsManger.getInstance().getConfigs().setInterval(Integer.parseInt(commandLine.getOptionValue("i")) * 1000);
             } else if (commandLine.hasOption("s")) {
                 ConfigsManger.getInstance().getConfigs()
                         .setSleepTime(Integer.parseInt(commandLine.getOptionValue("s")) * 1000);
@@ -54,7 +54,7 @@ public class ArgumentsProcessor {
         options.addOption("v", "version", false, "Show version");
         options.addOption("d", "debug", false, "Activate debug mode");
         options.addOption("i", "interval", true, "Set interval between checks (in seconds)");
-        options.addOption("s", "sleep", true, "Set sleep when there is no activity");
+        options.addOption("s", "sleep", true, "Set sleep when there is no activity (in seconds)");
         options.addOption("p1f", "partOneFormat", true, "Set the format for the first part");
         options.addOption("p2f", "partTowFormat", true, "Set the format for the second part");
     }
