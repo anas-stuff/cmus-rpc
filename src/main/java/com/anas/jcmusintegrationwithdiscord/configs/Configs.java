@@ -2,8 +2,11 @@ package com.anas.jcmusintegrationwithdiscord.configs;
 
 public class Configs {
     private int interval;
-    private String caverImage, playIcon, pauseIcon;
-    private String partOneFormat, partTowFormat;
+    private String caverImage,
+            playIcon,
+            pauseIcon;
+    private String partOneFormat,
+            partTowFormat;
     private int sleepTime;
     private boolean debug;
 
