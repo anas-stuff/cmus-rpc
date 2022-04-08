@@ -14,7 +14,7 @@ public class DiscordController {
     public DiscordController(String ID) {
         this.ID = ID;
         setup();
-        startTime = System.currentTimeMillis();
+        startTime = -1;
     }
 
     private void setup() {
@@ -34,12 +34,18 @@ public class DiscordController {
                 track.getTrackInfo().getStatus() == TrackInfo.Status.STOPPED) {
             // If track is paused for while of time or track is stopped, clear the activity
             DiscordRPC.discordClearPresence();
+            startTime = -1;
             return;
         }
+        if (startTime == -1) { // If start time is not set, set it
+            startTime = System.currentTimeMillis();
+            if (ConfigsManger.getInstance().isDebug())
+                System.out.println("Start time set to " + startTime);
+        }
         DiscordRichPresence.Builder builder = new DiscordRichPresence.Builder(
-                PartFormatter.format(ConfigsManger.getInstance().getConfigs().getPartOneFormat(), track));
+                PartFormatter.format(ConfigsManger.getInstance().getConfigs().getPartTowFormat(), track));
 
-        builder.setDetails(PartFormatter.format(ConfigsManger.getInstance().getConfigs().getPartTowFormat(), track));
+        builder.setDetails(PartFormatter.format(ConfigsManger.getInstance().getConfigs().getPartOneFormat(), track));
         builder.setBigImage(ConfigsManger.getInstance().getConfigs().getCaverImage(), "CMUS Player");
         builder.setStartTimestamps(startTime);
         if (track.getTrackInfo().getStatus() == TrackInfo.Status.PLAYING) {
