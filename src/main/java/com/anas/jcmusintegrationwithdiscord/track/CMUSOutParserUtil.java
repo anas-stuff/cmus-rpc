@@ -3,7 +3,7 @@ package com.anas.jcmusintegrationwithdiscord.track;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CMUSOutParser {
+public class CMUSOutParserUtil {
     public static Map<Tag, String> parse(String out) {
         Map<Tag, String> map = new HashMap<>();
         Tag key = null;

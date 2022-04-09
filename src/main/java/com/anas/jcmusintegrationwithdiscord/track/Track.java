@@ -48,7 +48,7 @@ public class Track {
     public static Track build(String response) {
         Track track = new Track();
 
-        track.setTags(CMUSOutParser.parse(response));
+        track.setTags(CMUSOutParserUtil.parse(response));
         track.setTrackInfo(new TrackInfo(response));
 
         return track;
