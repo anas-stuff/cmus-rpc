@@ -1,9 +1,9 @@
-package com.anas.jcmusintegrationwithdiscord;
+package com.anas.jcmusintegrationwithdiscord.util;
 
 import com.anas.jcmusintegrationwithdiscord.track.Tag;
 import com.anas.jcmusintegrationwithdiscord.track.Track;
 
-public class PartFormatterHelper {
+public class PartFormatterUtil {
     public static String format(String partFormat, Track track) {
         return partFormat
                 // Tags

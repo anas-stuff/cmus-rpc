@@ -1,4 +1,6 @@
-package com.anas.jcmusintegrationwithdiscord.track;
+package com.anas.jcmusintegrationwithdiscord.util;
+
+import com.anas.jcmusintegrationwithdiscord.track.Tag;
 
 import java.util.HashMap;
 import java.util.Map;
