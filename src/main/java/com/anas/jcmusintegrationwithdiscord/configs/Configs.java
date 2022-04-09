@@ -8,7 +8,8 @@ public class Configs {
     private String partOneFormat,
             partTowFormat;
     private int sleepTime;
-    private boolean debug;
+    private boolean debug,
+                    link;
 
     protected Configs() {
         initialize();
@@ -23,6 +24,7 @@ public class Configs {
         partOneFormat = "%artist% - %title%";
         partTowFormat = "%album%";
         debug = false;
+        link = false;
     }
 
     public int getInterval() {
@@ -87,5 +89,13 @@ public class Configs {
 
     public void setDebug(boolean debug) {
         this.debug = debug;
+    }
+
+    public boolean isLink() {
+        return link;
+    }
+
+    public void setLink(boolean link) {
+        this.link = link;
     }
 }

@@ -18,7 +18,7 @@ I know the name is terrible but that's where I'm at right now :P
 - Put the following in your shellrc file e.g. `.bashrc` or `.zshrc`
 ```bash
     alias JCmusIntegrationWithDiscord = '/usr/lib/jvm/jdk-18/bin/java -jar path/to/jar/JCmusIntegrationWithDiscord.jar'
-    alias cmus = 'JCmusIntegrationWithDiscord &>/dev/null & cmus'
+    alias cmus = 'JCmusIntegrationWithDiscord --link &>/dev/null & cmus'
 ```
 
 ### I use

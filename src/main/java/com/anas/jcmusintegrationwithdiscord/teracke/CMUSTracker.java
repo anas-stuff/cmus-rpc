@@ -82,8 +82,13 @@ public class CMUSTracker implements Runnable {
     }
 
     private void cmusNotRunning() {
-        if (ConfigsManger.getInstance().isDebug())
+        if (ConfigsManger.getInstance().isDebug()) {
             System.out.println("CMUS not running");
+        }
+        // Stop the program if the linking true
+        if (ConfigsManger.getInstance().getConfigs().isLink()) {
+            System.exit(0);
+        }
         if (!intervalTimeIncrement) {
             ConfigsManger.getInstance().getConfigs().setInterval(ConfigsManger.getInstance().getConfigs().getInterval() * 2);
             intervalTimeIncrement = true;
