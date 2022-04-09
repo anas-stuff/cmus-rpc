@@ -10,8 +10,6 @@ public class ConfigsManger {
     private Configs configs;
     private String configsPath;
     private static ConfigsManger instance;
-    private boolean debug;
-
     private ConfigsManger() {
         configsPath = System.getProperty("user.home") + "/.config/JCMUSIntegrationWithDiscord/configs.json";
         loadConfigs();
@@ -76,10 +74,10 @@ public class ConfigsManger {
     }
 
     public void setDebug(boolean debug) {
-        this.debug = debug;
+        configs.setDebug(debug);
     }
 
     public boolean isDebug() {
-        return debug || configs.isDebug();
+        return  configs.isDebug();
     }
 }
