@@ -79,4 +79,8 @@ public class ConfigsManger {
     public boolean isDebug() {
         return  configs.isDebug();
     }
+
+    public void setConfigsPath(String configsPath) {
+        this.configsPath = configsPath;
+    }
 }

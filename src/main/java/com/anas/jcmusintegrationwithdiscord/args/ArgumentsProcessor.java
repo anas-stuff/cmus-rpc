@@ -19,8 +19,9 @@ public class ArgumentsProcessor {
         try {
             CommandLine commandLine = parser.parse(options, args);
             check(commandLine);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (ParseException e) {
+            System.out.println("Error: " + e.getMessage());
+            showHelp();
         }
     }
 
@@ -58,8 +59,9 @@ public class ArgumentsProcessor {
     }
 
     private void showHelp() {
-        HelpFormatter formatter = new HelpFormatter();
-        formatter.printHelp("java -jar jcmusintegrationwithdiscord.jar [OPTIONS]", options);
+        new HelpFormatter()
+                .printHelp("java -jar jcmusintegrationwithdiscord.jar [OPTION] [VALUE] [OPTION] [VALUE] ...",
+                options);
         System.exit(0);
     }
 
