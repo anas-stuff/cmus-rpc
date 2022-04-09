@@ -25,26 +25,25 @@ public class ConfigsManger {
         } else {
             ObjectMapper objectMapper = new ObjectMapper();
             try {
-                JsonNode pnode = objectMapper.readTree(file);
+                JsonNode parentNode = objectMapper.readTree(file);
                 if (this.isDebug())
-                    System.out.println(pnode);
-
-                setAttributes(pnode);
+                    System.out.println(parentNode);
+                setAttributes(parentNode);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private void setAttributes(JsonNode pnode) {
-        configs.setInterval(pnode.get("interval").asInt());
-        configs.setCaverImage(pnode.get("caverImage").asText());
-        configs.setPlayIcon(pnode.get("playIcon").asText());
-        configs.setPauseIcon(pnode.get("pauseIcon").asText());
-        configs.setPartOneFormat(pnode.get("partOneFormat").asText());
-        configs.setPartTowFormat(pnode.get("partTowFormat").asText());
-        configs.setSleepTime(pnode.get("sleepTime").asInt());
-        configs.setDebug(pnode.get("debug").asBoolean());
+    private void setAttributes(JsonNode parentNode) {
+        configs.setInterval(parentNode.get("interval").asInt());
+        configs.setCaverImage(parentNode.get("caverImage").asText());
+        configs.setPlayIcon(parentNode.get("playIcon").asText());
+        configs.setPauseIcon(parentNode.get("pauseIcon").asText());
+        configs.setPartOneFormat(parentNode.get("partOneFormat").asText());
+        configs.setPartTowFormat(parentNode.get("partTowFormat").asText());
+        configs.setSleepTime(parentNode.get("sleepTime").asInt());
+        configs.setDebug(parentNode.get("debug").asBoolean());
     }
 
     private void saveConfigs() {
