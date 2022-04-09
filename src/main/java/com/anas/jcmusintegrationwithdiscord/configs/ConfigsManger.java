@@ -12,16 +12,20 @@ public class ConfigsManger {
     private static ConfigsManger instance;
     private ConfigsManger() {
         configsPath = System.getProperty("user.home") + "/.config/JCMUSIntegrationWithDiscord/configs.json";
-        loadConfigs();
+        loadConfigs(true);
     }
 
-    private void loadConfigs() {
+    private void loadConfigs(boolean createNew) {
         File file = new File(configsPath);
             configs = new Configs();
         if (!file.exists()) {
             if (configs.isDebug())
-                System.out.println("Configs file not found, creating new one");
-            saveConfigs();
+                System.out.println("Configs file not found");
+            if (createNew) {
+                if (configs.isDebug())
+                    System.out.println("Creating new configs file");
+                saveConfigs();
+            }
         } else {
             ObjectMapper objectMapper = new ObjectMapper();
             try {
@@ -82,5 +86,9 @@ public class ConfigsManger {
 
     public void setConfigsPath(String configsPath) {
         this.configsPath = configsPath;
+    }
+
+    public void reLoadConfigs() {
+        loadConfigs(false);
     }
 }

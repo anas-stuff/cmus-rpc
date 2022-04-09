@@ -43,6 +43,10 @@ public class ArgumentsProcessor {
         if (commandLine.hasOption("l")) {
             ConfigsManger.getInstance().getConfigs().setLink(true);
         }
+        if (commandLine.hasOption("c")) {
+            ConfigsManger.getInstance().setConfigsPath(commandLine.getOptionValue("c"));
+            ConfigsManger.getInstance().reLoadConfigs();
+        }
         if (commandLine.hasOption("i")) {
             ConfigsManger.getInstance().getConfigs().setInterval(Integer.parseInt(commandLine.getOptionValue("i")) * 1000);
         }
@@ -70,6 +74,7 @@ public class ArgumentsProcessor {
         options.addOption("v", "version", false, "Show version");
         options.addOption("d", "debug", false, "Activate debug mode");
         options.addOption("l", "link", false, "Linking with cmus (close the program if cmus is not running)");
+        options.addOption("c", "config", true, "Custom path to config file");
         options.addOption("i", "interval", true, "Set interval between checks (in seconds)");
         options.addOption("s", "sleep", true, "Set sleep when there is no activity (in seconds)");
         options.addOption("p1f", "partOneFormat", true, "Set the format for the first part");
