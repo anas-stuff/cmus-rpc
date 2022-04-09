@@ -7,7 +7,7 @@
 | `-h` or `--help`             | Show the help                                                | -                       |
  | `-v` or `--version`          | Show the version                                             | -                       |
  | `-d` or `--debug`            | Debug mode                                                   | -                       |
-| `--link`                     | Linking with cmus (close the program if cmus is not running) | -                       |
+| `-l` or `--link`             | Linking with cmus (close the program if cmus is not running) | -                       |
  | `-i` or `--interval`         | Set interval between checks                                  | interval time (seconds) |
 | `-s` or `--sleep`            | Set sleep when there is no activity                          | sleep time (seconds)    |
 | `-p1f` or `--partOneFormat`  | Set the format for the first part                            | Format for first part   |
