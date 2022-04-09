@@ -39,7 +39,7 @@ public class ArgumentsProcessor {
         if (commandLine.hasOption("d")) {
         ConfigsManger.getInstance().setDebug(true);
         }
-        if (commandLine.hasOption("link")) {
+        if (commandLine.hasOption("l")) {
             ConfigsManger.getInstance().getConfigs().setLink(true);
         }
         if (commandLine.hasOption("i")) {
@@ -67,7 +67,7 @@ public class ArgumentsProcessor {
         options.addOption("h", "help", false, "Show this help");
         options.addOption("v", "version", false, "Show version");
         options.addOption("d", "debug", false, "Activate debug mode");
-        options.addOption("link", false, "Linking with cmus (close the program if cmus is not running)");
+        options.addOption("l", "link", false, "Linking with cmus (close the program if cmus is not running)");
         options.addOption("i", "interval", true, "Set interval between checks (in seconds)");
         options.addOption("s", "sleep", true, "Set sleep when there is no activity (in seconds)");
         options.addOption("p1f", "partOneFormat", true, "Set the format for the first part");
