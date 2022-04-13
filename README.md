@@ -2,6 +2,7 @@
 I know the name is terrible but that's where I'm at right now :P
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/3e0d24aa2c1441e484622b8540193cdf)](https://app.codacy.com/gh/Anas-Elgarhy/JCmusIntegrationWithDiscord?utm_source=github.com&utm_medium=referral&utm_content=Anas-Elgarhy/JCmusIntegrationWithDiscord&utm_campaign=Badge_Grade_Settings)
+[![CodeFactor](https://www.codefactor.io/repository/github/anas-elgarhy/jcmusintegrationwithdiscord/badge)](https://www.codefactor.io/repository/github/anas-elgarhy/jcmusintegrationwithdiscord)
 [![wakatime](https://wakatime.com/badge/user/0671d7a1-0f1f-4dae-9501-2d7aa4f6fc20/project/5bd30ca7-e14d-4d4b-8fb6-7e1c0ab9250c.svg)](https://wakatime.com/badge/user/0671d7a1-0f1f-4dae-9501-2d7aa4f6fc20/project/5bd30ca7-e14d-4d4b-8fb6-7e1c0ab9250c)
 
 <img alt="image 1" src="./Screenshots/1.png">
