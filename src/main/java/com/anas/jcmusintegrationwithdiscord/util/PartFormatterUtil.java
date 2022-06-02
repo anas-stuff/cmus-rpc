@@ -4,6 +4,9 @@ import com.anas.jcmusintegrationwithdiscord.track.Tag;
 import com.anas.jcmusintegrationwithdiscord.track.Track;
 
 public class PartFormatterUtil {
+    private PartFormatterUtil() {
+        throw new IllegalStateException("Utility class");
+    }
     public static String format(String partFormat, Track track) {
         return partFormat
                 // Tags
