@@ -1,5 +1,6 @@
 package com.anas.jcmusintegrationwithdiscord.configs;
 
+import com.anas.jcmusintegrationwithdiscord.DebugManager;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -10,6 +11,7 @@ public class ConfigsManger {
     private Configs configs;
     private String configsPath;
     private static ConfigsManger instance;
+
     private ConfigsManger() {
         configsPath = System.getProperty("user.home") + "/.config/JCMUSIntegrationWithDiscord/configs.json";
         loadConfigs(true);
@@ -17,24 +19,22 @@ public class ConfigsManger {
 
     private void loadConfigs(boolean createNew) {
         File file = new File(configsPath);
-            configs = new Configs();
+        DebugManager.getInstance().debug("Loading configs from " + configsPath);
+        configs = new Configs();
         if (!file.exists()) {
-            if (configs.isDebug())
-                System.out.println("Configs file not found");
+            DebugManager.getInstance().debug("Configs file not found");
             if (createNew) {
-                if (configs.isDebug())
-                    System.out.println("Creating new configs file");
+                DebugManager.getInstance().debug("Creating new configs file....");
                 saveConfigs();
             }
         } else {
             ObjectMapper objectMapper = new ObjectMapper();
             try {
                 JsonNode parentNode = objectMapper.readTree(file);
-                if (this.isDebug())
-                    System.out.println(parentNode);
+                DebugManager.getInstance().debug(parentNode.asText());
                 setAttributes(parentNode);
             } catch (IOException e) {
-                e.printStackTrace();
+                DebugManager.getInstance().debug("Error while loading configs file");
             }
         }
     }
@@ -53,15 +53,13 @@ public class ConfigsManger {
     private void saveConfigs() {
         ObjectMapper objectMapper = new ObjectMapper();
         File file = new File(configsPath);
-        if (!file.getParentFile().exists()) {
+        if (!file.getParentFile().exists())
             file.getParentFile().mkdirs();
-        }
         try {
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(file, configs);
-            if (this.isDebug())
-                System.out.println("Created new configs file in " + file.getAbsolutePath());
+            DebugManager.getInstance().debug("Created new configs file in " + file.getAbsolutePath());
         } catch (IOException e) {
-            e.printStackTrace();
+            DebugManager.getInstance().debug("Error while creating new configs file, " + e.getMessage());
         }
     }
 
@@ -81,7 +79,7 @@ public class ConfigsManger {
     }
 
     public boolean isDebug() {
-        return  configs.isDebug();
+        return configs.isDebug();
     }
 
     public void setConfigsPath(String configsPath) {

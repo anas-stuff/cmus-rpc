@@ -1,12 +1,14 @@
 package com.anas.jcmusintegrationwithdiscord;
 
+import com.anas.jcmusintegrationwithdiscord.configs.ConfigsManger;
+
 public class DebugManager {
-    private boolean enabled;
+    private final boolean enabled;
 
     private static DebugManager instance;
 
     private DebugManager() {
-        enabled = false;
+        enabled = ConfigsManger.getInstance().isDebug();
     }
 
     public static DebugManager getInstance() {
@@ -14,10 +16,6 @@ public class DebugManager {
             instance = new DebugManager();
         }
         return instance;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
     }
 
     public void debug(String message) {

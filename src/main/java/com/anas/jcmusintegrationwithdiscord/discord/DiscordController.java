@@ -1,5 +1,6 @@
 package com.anas.jcmusintegrationwithdiscord.discord;
 
+import com.anas.jcmusintegrationwithdiscord.DebugManager;
 import com.anas.jcmusintegrationwithdiscord.util.PartFormatterUtil;
 import com.anas.jcmusintegrationwithdiscord.configs.ConfigsManger;
 import com.anas.jcmusintegrationwithdiscord.track.Track;
@@ -20,8 +21,7 @@ public class DiscordController {
     private void setup() {
         // Discord shutdown hook
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            if (ConfigsManger.getInstance().isDebug())
-                System.out.println("Shutting down Discord controller...");
+            DebugManager.getInstance().debug("Shutting down Discord controller...");
             DiscordRPC.discordShutdown();
         }));
 
@@ -61,7 +61,7 @@ public class DiscordController {
 
     private void updateStartTime() {
         startTime = System.currentTimeMillis();
-        if (ConfigsManger.getInstance().isDebug())
-            System.out.println("Start time set to " + startTime);
+        DebugManager.getInstance().debug("Start time set to " +
+                startTime / 1000 + "s");
     }
 }
