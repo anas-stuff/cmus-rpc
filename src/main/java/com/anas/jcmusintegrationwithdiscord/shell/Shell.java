@@ -1,5 +1,7 @@
 package com.anas.jcmusintegrationwithdiscord.shell;
 
+import java.io.IOException;
+
 public class Shell {
     private final ProcessBuilder processBuilder;
 
@@ -22,7 +24,7 @@ public class Shell {
             Process process = processBuilder.start();
             process.waitFor();
             return new Responce(process);
-        } catch (Exception e) {
+        } catch (InterruptedException | IOException e) {
             e.printStackTrace();
         }
         return null;

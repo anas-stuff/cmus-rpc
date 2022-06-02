@@ -25,17 +25,10 @@ I know the name is terrible but that's where I'm at right now :P
 | `-i` or `--interval`        | Set interval between checks                                  | interval time (seconds)   |
 | `-s` or `--sleep`           | Set sleep when there is no activity                          | sleep time (seconds)      |
 | `-p1f` or `--partOneFormat` | Set the format for the first part                            | Format for first part     |
-| `-p1f` or `--partTowFormat` | Set the format for the second part                           | Format for second part    |
+| `-p2f` or `--partTowFormat` | Set the format for the second part                           | Format for second part    |
 
 
 ### Examples:
-```bash
-java -jar JCmusIntegrationWithDiscord.jar -h
-```
-```bash
-java -jar JCmusIntegrationWithDiscord.jar --help
-```
-
 ```bash
 java -jar JCmusIntegrationWithDiscord.jar -p1f %title%
 ```
