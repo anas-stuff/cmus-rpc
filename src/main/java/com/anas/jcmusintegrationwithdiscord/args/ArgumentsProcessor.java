@@ -1,5 +1,6 @@
 package com.anas.jcmusintegrationwithdiscord.args;
 
+import com.anas.jcmusintegrationwithdiscord.DebugManager;
 import com.anas.jcmusintegrationwithdiscord.MainController;
 import com.anas.jcmusintegrationwithdiscord.configs.ConfigsManger;
 import org.apache.commons.cli.*;
@@ -38,7 +39,8 @@ public class ArgumentsProcessor {
 
     private void checkMultiOptions(CommandLine commandLine) {
         if (commandLine.hasOption("d")) {
-        ConfigsManger.getInstance().setDebug(true);
+            DebugManager.getInstance().setDebug(true);
+            ConfigsManger.getInstance().setDebug(true);
         }
         if (commandLine.hasOption("l")) {
             ConfigsManger.getInstance().getConfigs().setLink(true);
@@ -65,7 +67,7 @@ public class ArgumentsProcessor {
     private void showHelp() {
         new HelpFormatter()
                 .printHelp("java -jar jcmusintegrationwithdiscord.jar [OPTION] [VALUE] [OPTION] [VALUE] ...",
-                options);
+                        options);
         System.exit(0);
     }
 

@@ -9,9 +9,8 @@ public class MainController {
     private final DiscordController discordController;
 
     public MainController(String... args) {
-        DebugManager.getInstance().debug("JCMUS Discord Integration v" + VERSION);
-        DebugManager.getInstance().debug("Processing arguments...");
         new ArgumentsProcessor(args).process(); // process arguments
+        DebugManager.getInstance().debug("JCMUS Discord Integration v" + VERSION);
         discordController = new DiscordController("961407969986232380");
         start();
     }

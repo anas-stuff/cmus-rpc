@@ -1,14 +1,18 @@
 package com.anas.jcmusintegrationwithdiscord;
 
-import com.anas.jcmusintegrationwithdiscord.configs.ConfigsManger;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class DebugManager {
-    private final boolean enabled;
+    private boolean enabled;
+    private final Logger logger;
 
     private static DebugManager instance;
 
     private DebugManager() {
-        enabled = ConfigsManger.getInstance().isDebug();
+       enabled = false;
+       logger = Logger.getLogger("Logger");
     }
 
     public static DebugManager getInstance() {
@@ -18,9 +22,17 @@ public class DebugManager {
         return instance;
     }
 
-    public void debug(String message) {
+    public void debug(String message, Level... level) {
         if (enabled) {
-            System.out.println(message);
+            if (level.length == 0) {
+                logger.info(message);
+            } else {
+                logger.log(level[0], message);
+            }
         }
+    }
+
+    public void setDebug(boolean debug) {
+        enabled = debug;
     }
 }
