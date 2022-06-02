@@ -30,13 +30,6 @@ I know the name is terrible but that's where I'm at right now :P
 
 ### Examples:
 ```bash
-java -jar JCmusIntegrationWithDiscord.jar -h
-```
-```bash
-java -jar JCmusIntegrationWithDiscord.jar --help
-```
-
-```bash
 java -jar JCmusIntegrationWithDiscord.jar -p1f %title%
 ```
 
