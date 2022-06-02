@@ -16,14 +16,12 @@ public class CMUSOutParserUtil {
         String value = null;
         String[] lines = out.split("\n");
         for (String line : lines) {
-            if (!line.startsWith("tag ")) {
-                continue; // skip non-tag lines
-            }
-            String[] parts = line.split(" ");
+            String[] parts = line.split("\\s");
             if (parts.length >= 3) {
                 key = Tag.getTag(parts[1]);
-                if (key == null)
-                    continue; // skip unknown tags
+                if (!line.startsWith("tag ") || key == null) {
+                    continue; // skip non-tag lines and unknown tags
+                }
                 value = line.substring(line.indexOf(parts[2]));
             }
                 map.put(key, value);
