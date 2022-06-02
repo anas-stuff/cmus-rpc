@@ -1,6 +1,17 @@
 # JCMUSIntegrationWithDiscord - A Discord integration for CMUS
 I know the name is terrible but that's where I'm at right now :P
 
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JCmusIntegrationWithDiscord&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JCmusIntegrationWithDiscord)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JCmusIntegrationWithDiscord&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JCmusIntegrationWithDiscord)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JCmusIntegrationWithDiscord&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JCmusIntegrationWithDiscord)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JCmusIntegrationWithDiscord&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JCmusIntegrationWithDiscord)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JCmusIntegrationWithDiscord&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JCmusIntegrationWithDiscord)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JCmusIntegrationWithDiscord&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JCmusIntegrationWithDiscord)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JCmusIntegrationWithDiscord&metric=bugs)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JCmusIntegrationWithDiscord)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JCmusIntegrationWithDiscord&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JCmusIntegrationWithDiscord)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JCmusIntegrationWithDiscord&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JCmusIntegrationWithDiscord)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JCmusIntegrationWithDiscord&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JCmusIntegrationWithDiscord)
+
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/3e0d24aa2c1441e484622b8540193cdf)](https://app.codacy.com/gh/Anas-Elgarhy/JCmusIntegrationWithDiscord?utm_source=github.com&utm_medium=referral&utm_content=Anas-Elgarhy/JCmusIntegrationWithDiscord&utm_campaign=Badge_Grade_Settings)
 [![CodeFactor](https://www.codefactor.io/repository/github/anas-elgarhy/jcmusintegrationwithdiscord/badge)](https://www.codefactor.io/repository/github/anas-elgarhy/jcmusintegrationwithdiscord)
 [![wakatime](https://wakatime.com/badge/user/0671d7a1-0f1f-4dae-9501-2d7aa4f6fc20/project/5bd30ca7-e14d-4d4b-8fb6-7e1c0ab9250c.svg)](https://wakatime.com/badge/user/0671d7a1-0f1f-4dae-9501-2d7aa4f6fc20/project/5bd30ca7-e14d-4d4b-8fb6-7e1c0ab9250c)
@@ -56,4 +67,8 @@ java -jar JCmusIntegrationWithDiscord.jar -p1f "Anas listening to %title%" -p2f 
 - [jackson library](https:github.com/FasterXML/jackson-databind) to save the config.json and load it
 - [cmus-rich-presence](https://github.com/pascalpuffke/cmus-rich-presence) for inspiration
 
-#### License: MIT
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=Anas-Elgarhy_JCmusIntegrationWithDiscord)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JCmusIntegrationWithDiscord)
+
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-black.svg)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JCmusIntegrationWithDiscord)
+
+[![License MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://spdx.org/licenses/MIT.html)
