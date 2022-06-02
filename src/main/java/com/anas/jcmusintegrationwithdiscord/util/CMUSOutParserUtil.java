@@ -2,12 +2,16 @@ package com.anas.jcmusintegrationwithdiscord.util;
 
 import com.anas.jcmusintegrationwithdiscord.track.Tag;
 
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.Map;
 
 public class CMUSOutParserUtil {
+
+    private CMUSOutParserUtil() {
+        throw new IllegalStateException("Utility class");
+    }
     public static Map<Tag, String> parse(String out) {
-        Map<Tag, String> map = new HashMap<>();
+        Map<Tag, String> map = new EnumMap<>(Tag.class);
         Tag key = null;
         String value = null;
         String[] lines = out.split("\n");
