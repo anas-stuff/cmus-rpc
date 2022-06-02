@@ -5,10 +5,10 @@ import java.io.File;
 public class TrackInfo {
     private Status status;
     private File file;
-    private TrackTime duration,
-            currentTime;
+    private TrackTime duration;
+    private TrackTime currentTime;
 
-    public static enum Status {
+    public enum Status {
         PLAYING,
         PAUSED,
         STOPPED
@@ -20,17 +20,19 @@ public class TrackInfo {
 
     private void init(String output) {
         String[] lines = output.split("\n");
-        loop: for (String line : lines) {
+        boolean end = false;
+        for (String line : lines) {
             String[] parts = line.split(" ");
              switch (parts[0].toLowerCase()) {
                  case "status" -> status = Status.valueOf(parts[1].toUpperCase());
                  case "file" -> file = new File(line.substring(line.indexOf("file ")));
                  case "duration" -> duration = new TrackTime(Integer.parseInt(parts[1]));
                  case "position" -> currentTime = new TrackTime(Integer.parseInt(parts[1]));
-                 default -> {
-                     break loop; // break the loop because we don't need to parse the rest of the lines
-                 }
+                 default -> end = true;
              }
+                if (end) {
+                    break; // break the loop because we don't need to parse the rest of the lines
+                }
         }
     }
 
