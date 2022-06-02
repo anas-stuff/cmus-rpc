@@ -28,6 +28,7 @@ public class Shell {
             return new Responce(process);
         } catch (InterruptedException | IOException e) {
             DebugManager.getInstance().debug(e.getMessage());
+            Thread.currentThread().interrupt(); // reset interrupted flag
         }
         return null;
     }
