@@ -104,6 +104,7 @@ public class CMUSTracker implements Runnable {
             Thread.sleep(ConfigsManger.getInstance().getConfigs().getInterval());
         } catch (InterruptedException e) {
             e.printStackTrace();
+            Thread.currentThread().interrupt(); // Restore interrupted status
         }
     }
 
