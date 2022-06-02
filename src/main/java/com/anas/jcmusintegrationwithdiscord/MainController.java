@@ -10,12 +10,14 @@ public class MainController {
 
     public MainController(String... args) {
         new ArgumentsProcessor(args).process(); // process arguments
+        DebugManager.getInstance().debug("JCMUS Discord Integration v" + VERSION);
         discordController = new DiscordController("961407969986232380");
         start();
     }
 
     private void start() {
         CMUSTracker.getInstance().setDiscordController(discordController);
+        DebugManager.getInstance().debug("Starting CMUS tracker...");
         new Thread(CMUSTracker.getInstance()).start();
     }
 }

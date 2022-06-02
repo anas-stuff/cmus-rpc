@@ -1,5 +1,7 @@
 package com.anas.jcmusintegrationwithdiscord.shell;
 
+import com.anas.jcmusintegrationwithdiscord.DebugManager;
+
 import java.io.IOException;
 
 public class Shell {
@@ -25,7 +27,7 @@ public class Shell {
             process.waitFor();
             return new Responce(process);
         } catch (InterruptedException | IOException e) {
-            e.printStackTrace();
+            DebugManager.getInstance().debug(e.getMessage());
         }
         return null;
     }

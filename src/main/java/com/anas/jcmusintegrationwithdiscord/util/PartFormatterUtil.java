@@ -7,20 +7,20 @@ public class PartFormatterUtil {
     public static String format(String partFormat, Track track) {
         return partFormat
                 // Tags
-                .replaceAll("%title%", track.getTag(Tag.TITLE))
-                .replaceAll("%artist%", track.getTag(Tag.ARTIST))
-                .replaceAll("%album%", track.getTag(Tag.ALBUM))
-                .replaceAll("%genre%", track.getTag(Tag.GENRE))
-                .replaceAll("%date%", track.getTag(Tag.DATE))
-                .replaceAll("%album artist%", track.getTag(Tag.ALBUM_ARTIST))
-                .replaceAll("%disc number%", track.getTag(Tag.DISC_NUMBER))
-                .replaceAll("%track number%", track.getTag(Tag.TRACK_NUMBER))
-                .replaceAll("%track number%", track.getTag(Tag.TRACK_NUMBER))
+                .replace("%title%", track.getTag(Tag.TITLE))
+                .replace("%artist%", track.getTag(Tag.ARTIST))
+                .replace("%album%", track.getTag(Tag.ALBUM))
+                .replace("%genre%", track.getTag(Tag.GENRE))
+                .replace("%date%", track.getTag(Tag.DATE))
+                .replace("%album artist%", track.getTag(Tag.ALBUM_ARTIST))
+                .replace("%disc number%", track.getTag(Tag.DISC_NUMBER))
+                .replace("%track number%", track.getTag(Tag.TRACK_NUMBER))
+                .replace("%track number%", track.getTag(Tag.TRACK_NUMBER))
                 // Basic info
-                .replaceAll("%file%", track.getTrackInfo().getFile().getName())
-                .replaceAll("%file path%", track.getTrackInfo().getFile().getAbsolutePath())
-                .replaceAll("%file size%", track.getTrackInfo().getFile().length() + "")
-                .replaceAll("%duration%", track.getTrackInfo().getDuration() + "")
-                .replaceAll("%current position%", track.getTrackInfo().getCurrentTime() + "");
+                .replace("%file%", track.getTrackInfo().getFile().getName())
+                .replace("%file path%", track.getTrackInfo().getFile().getAbsolutePath())
+                .replace("%file size%", track.getTrackInfo().getFile().length() + "")
+                .replace("%duration%", track.getTrackInfo().getDuration() + "")
+                .replace("%current position%", track.getTrackInfo().getCurrentTime() + "");
     }
 }

@@ -1,5 +1,7 @@
 package com.anas.jcmusintegrationwithdiscord.configs;
 
+import com.anas.jcmusintegrationwithdiscord.DebugManager;
+
 public class Configs {
     private int interval;
     private String caverImage,
@@ -89,6 +91,7 @@ public class Configs {
 
     public void setDebug(boolean debug) {
         this.debug = debug;
+        DebugManager.getInstance().setDebug(debug);
     }
 
     public boolean isLink() {
