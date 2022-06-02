@@ -1,9 +1,12 @@
 package com.anas.jcmusintegrationwithdiscord.shell;
 
 
+import com.anas.jcmusintegrationwithdiscord.DebugManager;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.logging.Level;
 
 public class Responce {
     private StringBuilder responce;
@@ -24,7 +27,7 @@ public class Responce {
                 responce.append(line).append("\n");
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            DebugManager.getInstance().debug(e.getMessage(), Level.SEVERE);
         }
     }
 
