@@ -12,7 +12,7 @@ public enum Tag {
     LABEL;
 
     public boolean equals(String tag) {
-        return tag.equalsIgnoreCase(this.name().replaceAll("_", ""));
+        return tag.equalsIgnoreCase(this.name().replace("_", ""));
     }
 
     public static Tag getTag(String tag) {

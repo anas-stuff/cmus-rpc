@@ -2,7 +2,7 @@ package com.anas.jcmusintegrationwithdiscord.track;
 
 import com.anas.jcmusintegrationwithdiscord.util.CMUSOutParserUtil;
 
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.Map;
 
 public class Track {
@@ -10,7 +10,7 @@ public class Track {
     private Map<Tag, String> tags;
 
     public Track() {
-        tags = new HashMap<>();
+        tags = new EnumMap<>(Tag.class);
         trackInfo = null;
     }
 

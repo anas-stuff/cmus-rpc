@@ -32,7 +32,7 @@ public class CMUSTracker implements Runnable {
         while (true) {
             Responce r = Shell.getInstance().execute("cmus-remote -Q");
             if (!r.isError()) {
-                Track newTrack = Track.build(r.getResponce());
+                Track newTrack = Track.build(r.toString());
                 if (track.getTrackInfo() == null ||
                         !track.getTrackInfo().equals(newTrack.getTrackInfo())) {
                     if (intervalTimeIncrement) {
