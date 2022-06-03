@@ -59,7 +59,7 @@ java -jar JCmusIntegrationWithDiscord.jar -p1f "Anas listening to %title%" -p2f 
 ### How to do auto run when you start the cmus
 - Put the following in your shellrc file e.g. `.bashrc` or `.zshrc`
 ```bash
-    alias JCmusIntegrationWithDiscord = '/usr/lib/jvm/jdk-18/bin/java -jar path/to/jar/JCmusIntegrationWithDiscord.jar'
+    alias JCmusIntegrationWithDiscord = 'java -jar path/to/jar/JCmusIntegrationWithDiscord.jar'
     alias cmus = 'JCmusIntegrationWithDiscord --link &>/dev/null & cmus'
 ```
 
