@@ -59,6 +59,13 @@ java -jar JCmusIntegrationWithDiscord.jar -p1f "Anas listening to %title%" -p2f 
     alias cmus = 'JCmusIntegrationWithDiscord --link &>/dev/null & cmus'
 ```
 
+### Available in
+[![GitHub](https://img.shields.io/badge/GitHub-Main%20repo-brightgreen?style=for-the-badge&logo=GitHub)](https://github.com/Anas-Elgarhy/JCmusIntegrationWithDiscord)
+[![GitLab](https://img.shields.io/badge/GitLab-Mirror%20repo-brightgreen?style=for-the-badge&logo=GitLab)](https://gitlab.com/Anas-Elgarhy/JCmusIntegrationWithDiscord)
+[![BitBucket](https://img.shields.io/badge/BitBucket-Mirror%20repo-brightgreen?style=for-the-badge&logo=BitBucket)](https://bitbucket.org/anas_elgarhy/JCmusIntegrationWithDiscord)
+[![Codeberg](https://img.shields.io/badge/Codeberg-Mirror%20repo-brightgreen?style=for-the-badge&logo=Codeberg)](https://codeberg.org/anas-elgarhy/JCmusIntegrationWithDiscord)
+
+
 ### I use
 - [`cmus-remote` tool](https://github.com/cmus/cmus) to the make a query to the cmus
 - [Discord-RPC library](https://github.com/Vatuu/discord-rpc) to send the information to Discord
