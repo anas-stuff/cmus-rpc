@@ -11,7 +11,6 @@ I know the name is terrible but that's where I'm at right now :P
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JCmusIntegrationWithDiscord&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JCmusIntegrationWithDiscord)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JCmusIntegrationWithDiscord&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JCmusIntegrationWithDiscord)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JCmusIntegrationWithDiscord&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JCmusIntegrationWithDiscord)
-
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/3e0d24aa2c1441e484622b8540193cdf)](https://app.codacy.com/gh/Anas-Elgarhy/JCmusIntegrationWithDiscord?utm_source=github.com&utm_medium=referral&utm_content=Anas-Elgarhy/JCmusIntegrationWithDiscord&utm_campaign=Badge_Grade_Settings)
 [![CodeFactor](https://www.codefactor.io/repository/github/anas-elgarhy/jcmusintegrationwithdiscord/badge)](https://www.codefactor.io/repository/github/anas-elgarhy/jcmusintegrationwithdiscord)
 [![wakatime](https://wakatime.com/badge/user/0671d7a1-0f1f-4dae-9501-2d7aa4f6fc20/project/5bd30ca7-e14d-4d4b-8fb6-7e1c0ab9250c.svg)](https://wakatime.com/badge/user/0671d7a1-0f1f-4dae-9501-2d7aa4f6fc20/project/5bd30ca7-e14d-4d4b-8fb6-7e1c0ab9250c)
@@ -21,6 +20,11 @@ I know the name is terrible but that's where I'm at right now :P
 <img alt="image 3" src="./Screenshots/3.png">
 <img alt="image 4" src="./Screenshots/4.png">
 <img alt="image 5" src="./Screenshots/5.png">
+
+- Requirements for development:
+    - jdk-17 or higher
+    - Maven
+    - IntelliJ IDEA (not required but recommended)
 
 ### Syntax:
 `java -jar JCmusIntegrationWithDiscord.jar [Option] [value] [Option] [value] ...`
