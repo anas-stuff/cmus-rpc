@@ -8,16 +8,28 @@ import com.anas.cmusrpc.track.TrackInfo;
 import net.arikia.dev.drpc.DiscordRPC;
 import net.arikia.dev.drpc.DiscordRichPresence;
 
+/**
+ * Singing the application to Discord.
+ * @author Anas Elgarhy
+ */
 public class DiscordController {
     private final String ID;
     private long startTime;
 
+    /**
+     * The DiscordController constructor.
+     * @param ID The Discord application ID.
+     */
     public DiscordController(String ID) {
         this.ID = ID;
+        // Setting up the Discord controller.
         setup();
         startTime = -1;
     }
 
+    /**
+     * Set up the DiscordRPC shutdown hook and initialize the DiscordRPC.
+     */
     private void setup() {
         // Discord shutdown hook
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
@@ -26,9 +38,13 @@ public class DiscordController {
         }));
 
         DiscordRPC.discordInitialize(ID, null, true);
-        DiscordRPC.discordRegister(ID, "");
     }
 
+    /**
+     * If the track is paused or stopped, clear the presence. If the track is playing, update the presence
+     *
+     * @param track The track that is currently playing
+     */
     public void updateActivity(Track track) {
         if (track == null ||
                 track.getTrackInfo().getStatus() == TrackInfo.Status.STOPPED) {
@@ -44,6 +60,12 @@ public class DiscordController {
         DiscordRPC.discordUpdatePresence(buildRichPresence(track));
     }
 
+    /**
+     * It builds a DiscordRichPresence object.
+     *
+     * @param track The track object that contains all the information about the current track.
+     * @return A DiscordRichPresence object.
+     */
     private DiscordRichPresence buildRichPresence(Track track) {
         DiscordRichPresence.Builder builder = new DiscordRichPresence.Builder(
                 PartFormatterUtil.format(ConfigsManger.getInstance().getConfigs().getPartTowFormat(), track));
@@ -59,6 +81,9 @@ public class DiscordController {
         return builder.build();
     }
 
+    /**
+     * This function sets the start time to the current time.
+     */
     private void updateStartTime() {
         startTime = System.currentTimeMillis();
         DebugManager.getInstance().debug("Start time set to " +
