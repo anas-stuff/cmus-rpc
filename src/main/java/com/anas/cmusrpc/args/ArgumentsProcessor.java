@@ -1,7 +1,7 @@
 package com.anas.cmusrpc.args;
 
 import com.anas.cmusrpc.DebugManager;
-import com.anas.cmusrpc.MainController;
+import com.anas.cmusrpc.Main;
 import com.anas.cmusrpc.configs.ConfigsManger;
 import org.apache.commons.cli.*;
 
@@ -30,7 +30,7 @@ public class ArgumentsProcessor {
         if (commandLine.hasOption("h")) {
             showHelp();
         } else if (commandLine.hasOption("v")) {
-            System.out.println("Version: " + MainController.VERSION);
+            System.out.println("Version: " + Main.VERSION);
             System.exit(0);
         } else {
             checkMultiOptions(commandLine);
