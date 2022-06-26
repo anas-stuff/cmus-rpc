@@ -17,7 +17,7 @@ public enum Tag {
      * @param tag The tag to compare to.
      * @return The boolean value of the comparison of the tag and the name of the enum.
      */
-    public boolean equals(String tag) {
+    public boolean equals(final String tag) {
         return tag.equalsIgnoreCase(this.name().replace("_", ""));
     }
 
@@ -27,8 +27,8 @@ public enum Tag {
      * @param tag The tag you want to get.
      * @return The tag that matches the tag passed in.
      */
-    public static Tag getTag(String tag) {
-        for (Tag t : Tag.values()) {
+    public static Tag getTag(final String tag) {
+        for (final var t : Tag.values()) {
             if (t.equals(tag)) {
                 return t;
             }

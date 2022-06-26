@@ -22,8 +22,8 @@ public class ConfigsManger {
      *
      * @param createNew If the configs file doesn't exist, create a new one.
      */
-    private void loadConfigs(boolean createNew) {
-        File file = new File(configsPath);
+    private void loadConfigs(final boolean createNew) {
+        final var file = new File(configsPath);
         DebugManager.getInstance().debug("Loading configs from " + configsPath);
         configs = new Configs();
         if (!file.exists()) {
@@ -33,9 +33,9 @@ public class ConfigsManger {
                 saveConfigs();
             }
         } else {
-            ObjectMapper objectMapper = new ObjectMapper();
+            final var objectMapper = new ObjectMapper();
             try {
-                JsonNode parentNode = objectMapper.readTree(file);
+                final var parentNode = objectMapper.readTree(file);
                 DebugManager.getInstance().debug(parentNode.asText());
                 setAttributes(parentNode);
             } catch (IOException e) {
@@ -49,7 +49,7 @@ public class ConfigsManger {
      *
      * @param parentNode The root node of the json file.
      */
-    private void setAttributes(JsonNode parentNode) {
+    private void setAttributes(final JsonNode parentNode) {
         configs.setInterval(parentNode.get("interval").asInt());
         configs.setCaverImage(parentNode.get("caverImage").asText());
         configs.setPlayIcon(parentNode.get("playIcon").asText());
@@ -64,8 +64,8 @@ public class ConfigsManger {
      * It creates a new file in the configsPath directory, and writes the configs object to it
      */
     private void saveConfigs() {
-        ObjectMapper objectMapper = new ObjectMapper();
-        File file = new File(configsPath);
+        final var objectMapper = new ObjectMapper();
+        final var file = new File(configsPath);
         if (!file.getParentFile().exists())
             file.getParentFile().mkdirs();
         try {
@@ -102,7 +102,7 @@ public class ConfigsManger {
      *
      * @param debug If true, the debug mode is enabled.
      */
-    public void setDebug(boolean debug) {
+    public void setDebug(final boolean debug) {
         configs.setDebug(debug);
     }
 
@@ -111,7 +111,7 @@ public class ConfigsManger {
      *
      * @param configsPath The path to the directory where the config files are stored.
      */
-    public void setConfigsPath(String configsPath) {
+    public void setConfigsPath(final String configsPath) {
         this.configsPath = configsPath;
     }
 

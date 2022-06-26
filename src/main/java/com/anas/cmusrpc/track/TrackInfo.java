@@ -19,7 +19,7 @@ public class TrackInfo {
      * Create track info object
      * @param output the output of the `cmus-remote -Q` command
      */
-    protected TrackInfo(String output) {
+    protected TrackInfo(final String output) {
         init(output);
     }
 
@@ -29,9 +29,9 @@ public class TrackInfo {
      *
      * @param output The output of the command `cmus-remote -Q`
      */
-    private void init(String output) {
-        String[] lines = output.split("\n");
-        boolean end = false;
+    private void init(final String output) {
+        final var lines = output.split("\n");
+        var end = false;
         for (String line : lines) {
             String[] parts = line.split(" ");
             switch (parts[0].toLowerCase()) {
@@ -61,7 +61,7 @@ public class TrackInfo {
      *
      * @param status The status of the track
      */
-    public void setStatus(Status status) {
+    public void setStatus(final Status status) {
         this.status = status;
     }
 
@@ -97,12 +97,12 @@ public class TrackInfo {
      *
      * @param currentTime The current time of the track.
      */
-    public void setCurrentTime(TrackTime currentTime) {
+    public void setCurrentTime(final TrackTime currentTime) {
         this.currentTime = currentTime;
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (o == null) return false;
         if (!(o instanceof TrackInfo track)) return false;
 

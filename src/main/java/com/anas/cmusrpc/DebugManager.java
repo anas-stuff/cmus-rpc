@@ -35,7 +35,8 @@ public class DebugManager {
      *
      * @param message The message to be logged.
      */
-    public void debug(String message, Level... level) {
+    public void debug(final String message,
+                      final Level... level) {
         if (enabled) {
             if (level.length == 0) {
                 logger.info(message);
@@ -50,7 +51,7 @@ public class DebugManager {
      *
      * @param debug true/false - enables/disables the debug mode
      */
-    public void setDebug(boolean debug) {
+    public void setDebug(final boolean debug) {
         enabled = debug;
     }
 }

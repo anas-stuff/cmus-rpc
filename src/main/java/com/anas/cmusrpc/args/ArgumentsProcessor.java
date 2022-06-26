@@ -37,7 +37,7 @@ public class ArgumentsProcessor {
      *
      * @param commandLine The command line object that contains the options and arguments.
      */
-    private void check(CommandLine commandLine) {
+    private void check(final CommandLine commandLine) {
         if (commandLine.hasOption("h")) {
             showHelp();
         } else if (commandLine.hasOption("v")) {
@@ -53,7 +53,7 @@ public class ArgumentsProcessor {
      *
      * @param commandLine The object that contains the parameters passed in by the user.
      */
-    private void checkMultiOptions(CommandLine commandLine) {
+    private void checkMultiOptions(final CommandLine commandLine) {
         if (commandLine.hasOption("d")) {
             DebugManager.getInstance().setDebug(true);
             ConfigsManger.getInstance().setDebug(true);

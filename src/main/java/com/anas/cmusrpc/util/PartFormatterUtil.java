@@ -17,7 +17,8 @@ public class PartFormatterUtil {
      * @param track The track to format
      * @return A string with the tags replaced with the values of the tags.
      */
-    public static String format(String partFormat, Track track) {
+    public static String format(final String partFormat,
+                                final Track track) {
         return partFormat
                 // Tags
                 .replace("%title%", track.getTrackName())
