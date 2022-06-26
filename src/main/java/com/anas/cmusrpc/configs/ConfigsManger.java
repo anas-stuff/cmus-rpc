@@ -17,6 +17,11 @@ public class ConfigsManger {
         loadConfigs(true);
     }
 
+    /**
+     * It loads the configs file from the configsPath and sets the attributes of the configs object
+     *
+     * @param createNew If the configs file doesn't exist, create a new one.
+     */
     private void loadConfigs(boolean createNew) {
         File file = new File(configsPath);
         DebugManager.getInstance().debug("Loading configs from " + configsPath);
@@ -39,6 +44,11 @@ public class ConfigsManger {
         }
     }
 
+    /**
+     * It takes a JsonNode object and sets the values of the Configs object
+     *
+     * @param parentNode The root node of the json file.
+     */
     private void setAttributes(JsonNode parentNode) {
         configs.setInterval(parentNode.get("interval").asInt());
         configs.setCaverImage(parentNode.get("caverImage").asText());
@@ -50,6 +60,9 @@ public class ConfigsManger {
         configs.setDebug(parentNode.get("debug").asBoolean());
     }
 
+    /**
+     * It creates a new file in the configsPath directory, and writes the configs object to it
+     */
     private void saveConfigs() {
         ObjectMapper objectMapper = new ObjectMapper();
         File file = new File(configsPath);
@@ -63,6 +76,11 @@ public class ConfigsManger {
         }
     }
 
+    /**
+     * If the instance is null, create a new instance and return it. Otherwise, return the existing instance
+     *
+     * @return The instance of the ConfigsManger class.
+     */
     public static ConfigsManger getInstance() {
         if (instance == null) {
             instance = new ConfigsManger();
@@ -70,22 +88,36 @@ public class ConfigsManger {
         return instance;
     }
 
+    /**
+     * This function returns the configs object.
+     *
+     * @return The configs object.
+     */
     public Configs getConfigs() {
         return configs;
     }
 
+    /**
+     * > Sets the debug flag
+     *
+     * @param debug If true, the debug mode is enabled.
+     */
     public void setDebug(boolean debug) {
         configs.setDebug(debug);
     }
 
-    public boolean isDebug() {
-        return configs.isDebug();
-    }
-
+    /**
+     * > Sets the path to the configs directory
+     *
+     * @param configsPath The path to the directory where the config files are stored.
+     */
     public void setConfigsPath(String configsPath) {
         this.configsPath = configsPath;
     }
 
+    /**
+     * It reloads the configs
+     */
     public void reLoadConfigs() {
         loadConfigs(false);
     }
