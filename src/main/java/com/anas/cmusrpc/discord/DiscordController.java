@@ -1,10 +1,10 @@
-package com.anas.jcmusintegrationwithdiscord.discord;
+package com.anas.cmusrpc.discord;
 
-import com.anas.jcmusintegrationwithdiscord.DebugManager;
-import com.anas.jcmusintegrationwithdiscord.util.PartFormatterUtil;
-import com.anas.jcmusintegrationwithdiscord.configs.ConfigsManger;
-import com.anas.jcmusintegrationwithdiscord.track.Track;
-import com.anas.jcmusintegrationwithdiscord.track.TrackInfo;
+import com.anas.cmusrpc.DebugManager;
+import com.anas.cmusrpc.util.PartFormatterUtil;
+import com.anas.cmusrpc.configs.ConfigsManger;
+import com.anas.cmusrpc.track.Track;
+import com.anas.cmusrpc.track.TrackInfo;
 import net.arikia.dev.drpc.DiscordRPC;
 import net.arikia.dev.drpc.DiscordRichPresence;
 

@@ -1,7 +1,7 @@
-package com.anas.jcmusintegrationwithdiscord.util;
+package com.anas.cmusrpc.util;
 
-import com.anas.jcmusintegrationwithdiscord.track.Tag;
-import com.anas.jcmusintegrationwithdiscord.track.Track;
+import com.anas.cmusrpc.track.Tag;
+import com.anas.cmusrpc.track.Track;
 
 public class PartFormatterUtil {
     private PartFormatterUtil() {
@@ -10,7 +10,7 @@ public class PartFormatterUtil {
     public static String format(String partFormat, Track track) {
         return partFormat
                 // Tags
-                .replace("%title%", track.getTag(Tag.TITLE))
+                .replace("%title%", track.getTrackName())
                 .replace("%artist%", track.getTag(Tag.ARTIST))
                 .replace("%album%", track.getTag(Tag.ALBUM))
                 .replace("%genre%", track.getTag(Tag.GENRE))

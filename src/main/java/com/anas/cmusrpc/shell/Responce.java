@@ -1,7 +1,7 @@
-package com.anas.jcmusintegrationwithdiscord.shell;
+package com.anas.cmusrpc.shell;
 
 
-import com.anas.jcmusintegrationwithdiscord.DebugManager;
+import com.anas.cmusrpc.DebugManager;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package com.anas.jcmusintegrationwithdiscord;
+package com.anas.cmusrpc;
 
 
 import java.util.logging.Level;

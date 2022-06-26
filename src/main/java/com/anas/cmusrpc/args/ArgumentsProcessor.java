@@ -1,8 +1,8 @@
-package com.anas.jcmusintegrationwithdiscord.args;
+package com.anas.cmusrpc.args;
 
-import com.anas.jcmusintegrationwithdiscord.DebugManager;
-import com.anas.jcmusintegrationwithdiscord.MainController;
-import com.anas.jcmusintegrationwithdiscord.configs.ConfigsManger;
+import com.anas.cmusrpc.DebugManager;
+import com.anas.cmusrpc.MainController;
+import com.anas.cmusrpc.configs.ConfigsManger;
 import org.apache.commons.cli.*;
 
 public class ArgumentsProcessor {

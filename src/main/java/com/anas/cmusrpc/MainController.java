@@ -1,8 +1,8 @@
-package com.anas.jcmusintegrationwithdiscord;
+package com.anas.cmusrpc;
 
-import com.anas.jcmusintegrationwithdiscord.args.ArgumentsProcessor;
-import com.anas.jcmusintegrationwithdiscord.discord.DiscordController;
-import com.anas.jcmusintegrationwithdiscord.teracke.CMUSTracker;
+import com.anas.cmusrpc.args.ArgumentsProcessor;
+import com.anas.cmusrpc.discord.DiscordController;
+import com.anas.cmusrpc.teracke.CMUSTracker;
 
 public class MainController {
     public static final String VERSION = "1.2.0";

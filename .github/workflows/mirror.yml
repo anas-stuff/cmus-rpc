@@ -12,7 +12,7 @@ jobs:
           fetch-depth: 0
        - uses: yesolutions/mirror-action@master
          with:
-            REMOTE: 'https://gitlab.com/Anas-Elgarhy/JCmusIntegrationWithDiscord.git'
+            REMOTE: 'https://gitlab.com/Anas-Elgarhy/cmus-rpc.git'
             GIT_USERNAME: Anas-Elgarhy
             GIT_PASSWORD: ${{ secrets.GITLAP_TOKEN }}
 
@@ -22,7 +22,7 @@ jobs:
           fetch-depth: 0
        - uses: yesolutions/mirror-action@master
          with:
-            REMOTE: 'https://anas_elgarhy@bitbucket.org/anas_elgarhy/jcmusintegrationwithdiscord.git'
+            REMOTE: 'https://anas_elgarhy@bitbucket.org/anas_elgarhy/cmus-rpc.git'
             REMOTE_NAME: bitbucket
             GIT_USERNAME: anas_elgarhy
             GIT_PASSWORD: ${{ secrets.BITBUCKET_TOKEN }}
@@ -33,7 +33,7 @@ jobs:
           fetch-depth: 0
        - uses: yesolutions/mirror-action@master
          with:
-            REMOTE: 'https://codeberg.org/anas-elgarhy/JCmusIntegrationWithDiscord.git'
+            REMOTE: 'https://codeberg.org/anas-elgarhy/cmus-rpc.git'
             REMOTE_NAME: codeberg
             GIT_USERNAME: anas-elgarhy
             GIT_PASSWORD: ${{ secrets.CODEBERG_TOKEN }}

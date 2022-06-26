@@ -1,6 +1,6 @@
-package com.anas.jcmusintegrationwithdiscord.track;
+package com.anas.cmusrpc.track;
 
-import com.anas.jcmusintegrationwithdiscord.util.CMUSOutParserUtil;
+import com.anas.cmusrpc.util.CMUSOutParserUtil;
 
 import java.util.EnumMap;
 import java.util.Map;
@@ -31,7 +31,10 @@ public class Track {
     }
 
     public String getTag(Tag key) {
-        return tags.get(key);
+        if (tags.containsKey(key)) {
+            return tags.get(key);
+        }
+        return "Unknown";
     }
 
     public void update(Track track) {
@@ -48,7 +51,7 @@ public class Track {
     }
 
     public static Track build(String response) {
-        Track track = new Track();
+        final var track = new Track();
 
         track.setTags(CMUSOutParserUtil.parse(response));
         track.setTrackInfo(new TrackInfo(response));
@@ -56,7 +59,18 @@ public class Track {
         return track;
     }
 
-    public String timeToString() {
-        return trackInfo.getCurrentTime().toString() + "/" + trackInfo.getDuration().toString();
+    /**
+     * If the track has a title, return it. Otherwise, return the name of the file
+     *
+     * @return The name of the track.
+     */
+    public String getTrackName() {
+        var name = getTag(Tag.TITLE);
+        if (name.equals("Unknown")) {
+            // Getting the name of the file and removing the extension.
+            name = trackInfo.getFile().getName()
+                    .substring(0, trackInfo.getFile().getName().lastIndexOf("."));
+        }
+        return name;
     }
 }
