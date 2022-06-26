@@ -13,7 +13,7 @@ public class ConfigsManger {
     private static ConfigsManger instance;
 
     private ConfigsManger() {
-        configsPath = System.getProperty("user.home") + "/.config/JCMUSIntegrationWithDiscord/configs.json";
+        configsPath = System.getProperty("user.home") + "/.config/cmus-rpc/configs.json";
         loadConfigs(true);
     }
 
