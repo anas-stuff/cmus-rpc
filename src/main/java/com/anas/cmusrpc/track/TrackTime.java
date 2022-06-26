@@ -12,7 +12,7 @@ public class TrackTime {
      *
      * @param timeInSeconds The time in seconds.
      */
-    public TrackTime(int timeInSeconds) {
+    public TrackTime(final int timeInSeconds) {
         initialize(timeInSeconds);
     }
 
@@ -22,7 +22,7 @@ public class TrackTime {
      *
      * @param timeInSeconds The time in seconds that you want to convert to minutes and seconds.
      */
-    private void initialize(int timeInSeconds) {
+    private void initialize(final int timeInSeconds) {
         this.minutes = timeInSeconds / 60;
         this.seconds = timeInSeconds % 60;
     }

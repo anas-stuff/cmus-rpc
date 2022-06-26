@@ -20,7 +20,7 @@ public class DiscordController {
      * The DiscordController constructor.
      * @param ID The Discord application ID.
      */
-    public DiscordController(String ID) {
+    public DiscordController(final String ID) {
         this.ID = ID;
         // Setting up the Discord controller.
         setup();
@@ -45,7 +45,7 @@ public class DiscordController {
      *
      * @param track The track that is currently playing
      */
-    public void updateActivity(Track track) {
+    public void updateActivity(final Track track) {
         if (track == null ||
                 track.getTrackInfo().getStatus() == TrackInfo.Status.STOPPED) {
             // If track is paused for while of time or track is stopped, clear the activity
@@ -66,9 +66,10 @@ public class DiscordController {
      * @param track The track object that contains all the information about the current track.
      * @return A DiscordRichPresence object.
      */
-    private DiscordRichPresence buildRichPresence(Track track) {
-        DiscordRichPresence.Builder builder = new DiscordRichPresence.Builder(
-                PartFormatterUtil.format(ConfigsManger.getInstance().getConfigs().getPartTowFormat(), track));
+    private DiscordRichPresence buildRichPresence(final Track track) {
+        final var builder = new DiscordRichPresence.Builder(
+                PartFormatterUtil.format(ConfigsManger.getInstance().getConfigs().getPartTowFormat(), track)
+        );
 
         builder.setDetails(PartFormatterUtil.format(ConfigsManger.getInstance().getConfigs().getPartOneFormat(), track));
         builder.setBigImage(ConfigsManger.getInstance().getConfigs().getCaverImage(), "CMUS Player");

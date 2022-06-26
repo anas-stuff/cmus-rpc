@@ -33,13 +33,13 @@ public class CMUSTracker implements Runnable {
 
     @Override
     public void run() {
-        Track track = new Track();
+        final var track = new Track();
         while (true) {
-            Responce r = Shell.getInstance().execute("cmus-remote -Q");
+            final var r = Shell.getInstance().execute("cmus-remote -Q");
             // Checking if the command executed successfully.
             if (!r.isError()) {
                 // Creating a new track object from the output of the cmus-remote command.
-                Track newTrack = Track.build(r.toString());
+                final var newTrack = Track.build(r.toString());
                 if (track.getTrackInfo() == null ||
                         !track.getTrackInfo().equals(newTrack.getTrackInfo())) {
                     if (intervalTimeIncrement) {
@@ -76,7 +76,7 @@ public class CMUSTracker implements Runnable {
      * @param track The current track that is playing
      * @param newTrack The track that is currently playing
      */
-    private void updateActivity(Track track, Track newTrack) {
+    private void updateActivity(final Track track, final Track newTrack) {
         track.update(newTrack);
         if (discordController != null) {
             if (sleepTime > 0) {
@@ -141,7 +141,7 @@ public class CMUSTracker implements Runnable {
      *
      * @param discordController The DiscordController object that is used to send messages to the Discord channel.
      */
-    public void setDiscordController(DiscordController discordController) {
+    public void setDiscordController(final DiscordController discordController) {
         this.discordController = discordController;
     }
 }

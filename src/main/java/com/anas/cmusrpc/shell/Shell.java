@@ -35,7 +35,7 @@ public class Shell {
      * @param command The command to be executed.
      * @return A Responce object, returns null if the command interrupted, or the sh binary is not found.
      */
-    public Responce execute(String command) {
+    public Responce execute(final String command) {
         try {
             processBuilder.command("/bin/sh", "-c", command);
             Process process = processBuilder.start();

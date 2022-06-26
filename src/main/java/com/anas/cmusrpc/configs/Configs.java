@@ -46,7 +46,7 @@ public class Configs {
      *
      * @param interval The interval in milliseconds between each call to the onTick() method.
      */
-    public void setInterval(int interval) {
+    public void setInterval(final int interval) {
         this.interval = interval;
     }
 
@@ -64,7 +64,7 @@ public class Configs {
      *
      * @param caverImage The image of the caver.
      */
-    public void setCaverImage(String caverImage) {
+    public void setCaverImage(final String caverImage) {
         this.caverImage = caverImage;
     }
 
@@ -82,7 +82,7 @@ public class Configs {
      *
      * @param playIcon The icon name to use for the play icon.
      */
-    public void setPlayIcon(String playIcon) {
+    public void setPlayIcon(final String playIcon) {
         this.playIcon = playIcon;
     }
 
@@ -100,7 +100,7 @@ public class Configs {
      *
      * @param pauseIcon The icon name to use for the pause icon.
      */
-    public void setPauseIcon(String pauseIcon) {
+    public void setPauseIcon(final String pauseIcon) {
         this.pauseIcon = pauseIcon;
     }
 
@@ -118,7 +118,7 @@ public class Configs {
      *
      * @param partOneFormat The format of the first part of the rich presence.
      */
-    public void setPartOneFormat(String partOneFormat) {
+    public void setPartOneFormat(final String partOneFormat) {
         this.partOneFormat = partOneFormat;
     }
 
@@ -136,7 +136,7 @@ public class Configs {
      *
      * @param partTowFormat The format of the second part of the rich presence.
      */
-    public void setPartTowFormat(String partTowFormat) {
+    public void setPartTowFormat(final String partTowFormat) {
         this.partTowFormat = partTowFormat;
     }
 
@@ -154,17 +154,8 @@ public class Configs {
      *
      * @param sleepTime The time in milliseconds to sleep between each check of the CMUS status.
      */
-    public void setSleepTime(int sleepTime) {
+    public void setSleepTime(final int sleepTime) {
         this.sleepTime = sleepTime;
-    }
-
-    /**
-     * This function returns true if the debug mode is enabled.
-     *
-     * @return The value of the debug mode.
-     */
-    public boolean isDebug() {
-        return debug;
     }
 
     /**
@@ -172,7 +163,7 @@ public class Configs {
      *
      * @param debug If true, the debug mode is enabled.
      */
-    public void setDebug(boolean debug) {
+    public void setDebug(final boolean debug) {
         this.debug = debug;
         DebugManager.getInstance().setDebug(debug);
     }
@@ -191,7 +182,7 @@ public class Configs {
      *
      * @param link If true, the link will be enabled.
      */
-    public void setLink(boolean link) {
+    public void setLink(final boolean link) {
         this.link = link;
     }
 }

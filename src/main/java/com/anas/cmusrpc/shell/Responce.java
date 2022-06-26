@@ -19,7 +19,7 @@ public class Responce {
      * Create respoce object
      * @param process the shell process
      */
-    public Responce(Process process) {
+    public Responce(final Process process) {
         stringBuilder = new StringBuilder();
         isError = process.exitValue() != 0;
         setupString(process);
@@ -30,8 +30,8 @@ public class Responce {
      *
      * @param process The process that you want to get the output from.
      */
-    private void setupString(Process process) {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+    private void setupString(final Process process) {
+        final var reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
         String line;
         try {
             while ((line = reader.readLine()) != null) {

@@ -37,7 +37,7 @@ public class Track {
      *
      * @param trackInfo The track info object that contains the track's information.
      */
-    protected void setTrackInfo(TrackInfo trackInfo) {
+    protected void setTrackInfo(final TrackInfo trackInfo) {
         this.trackInfo = trackInfo;
     }
 
@@ -46,7 +46,7 @@ public class Track {
      *
      * @param tags A map of tags to be added to the resource.
      */
-    protected void setTags(Map<Tag, String> tags) {
+    protected void setTags(final Map<Tag, String> tags) {
         this.tags = tags;
     }
 
@@ -56,7 +56,7 @@ public class Track {
      * @param key The key of the tag you want to get.
      * @return The value of the tag if it exists, otherwise "Unknown".
      */
-    public String getTag(Tag key) {
+    public String getTag(final Tag key) {
         if (tags.containsKey(key)) {
             return tags.get(key);
         }
@@ -68,7 +68,7 @@ public class Track {
      *
      * @param track The track object that is being updated.
      */
-    public void update(Track track) {
+    public void update(final Track track) {
         if ((this.trackInfo != null &&
                 track.getTrackInfo() != null &&
                 track.getTrackInfo().getFile() != null) &&
@@ -89,7 +89,7 @@ public class Track {
      * @param response The response from the cmus-remote command
      * @return A Track object
      */
-    public static Track build(String response) {
+    public static Track build(final String response) {
         final var track = new Track();
 
         track.setTags(CMUSOutParserUtil.parse(response));
