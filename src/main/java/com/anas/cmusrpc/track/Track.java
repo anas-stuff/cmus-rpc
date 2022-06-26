@@ -14,22 +14,48 @@ public class Track {
         trackInfo = null;
     }
 
+    /**
+     * This function returns the trackInfo object.
+     *
+     * @return The trackInfo object.
+     */
     public TrackInfo getTrackInfo() {
         return trackInfo;
     }
 
+    /**
+     * Returns a map of tags to values.
+     *
+     * @return A map of tags and their values.
+     */
     public Map<Tag, String> getTags() {
         return tags;
     }
 
+    /**
+     * > This function sets the trackInfo variable to the trackInfo parameter
+     *
+     * @param trackInfo The track info object that contains the track's information.
+     */
     protected void setTrackInfo(TrackInfo trackInfo) {
         this.trackInfo = trackInfo;
     }
 
+    /**
+     * > This function sets the tags of the current object to the tags passed in as a parameter
+     *
+     * @param tags A map of tags to be added to the resource.
+     */
     protected void setTags(Map<Tag, String> tags) {
         this.tags = tags;
     }
 
+    /**
+     * If the key is in the map, return the value, otherwise return "Unknown"
+     *
+     * @param key The key of the tag you want to get.
+     * @return The value of the tag if it exists, otherwise "Unknown".
+     */
     public String getTag(Tag key) {
         if (tags.containsKey(key)) {
             return tags.get(key);
@@ -37,8 +63,15 @@ public class Track {
         return "Unknown";
     }
 
+    /**
+     * If the file is the same, update the current time and status only, otherwise update all attributes
+     *
+     * @param track The track object that is being updated.
+     */
     public void update(Track track) {
-        if ((this.trackInfo != null && track.getTrackInfo() != null && track.getTrackInfo().getFile() != null) &&
+        if ((this.trackInfo != null &&
+                track.getTrackInfo() != null &&
+                track.getTrackInfo().getFile() != null) &&
                 track.getTrackInfo().getFile().equals(this.trackInfo.getFile())) {
             // Update the current time and the status if the file is the same
             this.trackInfo.setCurrentTime(track.getTrackInfo().getCurrentTime());
@@ -50,6 +83,12 @@ public class Track {
         }
     }
 
+    /**
+     * It takes a string, parses it, and returns a Track object
+     *
+     * @param response The response from the cmus-remote command
+     * @return A Track object
+     */
     public static Track build(String response) {
         final var track = new Track();
 

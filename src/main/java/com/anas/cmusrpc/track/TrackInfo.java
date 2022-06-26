@@ -8,16 +8,27 @@ public class TrackInfo {
     private TrackTime duration;
     private TrackTime currentTime;
 
+    // Defining an enum represent the status of track
     public enum Status {
         PLAYING,
         PAUSED,
         STOPPED
     }
 
+    /**
+     * Create track info object
+     * @param output the output of the `cmus-remote -Q` command
+     */
     protected TrackInfo(String output) {
         init(output);
     }
 
+    /**
+     * It takes the output of the `cmus-remote -Q` command and get the base file info from it.
+     * like the current status and the track file path and the duration and the current position.
+     *
+     * @param output The output of the command `cmus-remote -Q`
+     */
     private void init(String output) {
         String[] lines = output.split("\n");
         boolean end = false;
@@ -36,26 +47,56 @@ public class TrackInfo {
         }
     }
 
+    /**
+     * Returns the status of the track.
+     *
+     * @return The status.
+     */
     public Status getStatus() {
         return status;
     }
 
+    /**
+     * This function sets the status of track
+     *
+     * @param status The status of the track
+     */
     public void setStatus(Status status) {
         this.status = status;
     }
 
+    /**
+     * This function returns the file.
+     *
+     * @return The track file
+     */
     public File getFile() {
         return file;
     }
 
+    /**
+     * This function returns the duration of the track
+     *
+     * @return The duration of the track.
+     */
     public TrackTime getDuration() {
         return duration;
     }
 
+    /**
+     * This function returns the current time of the track.
+     *
+     * @return The current time of the track.
+     */
     public TrackTime getCurrentTime() {
         return currentTime;
     }
 
+    /**
+     * This function sets the current time of the track.
+     *
+     * @param currentTime The current time of the track.
+     */
     public void setCurrentTime(TrackTime currentTime) {
         this.currentTime = currentTime;
     }

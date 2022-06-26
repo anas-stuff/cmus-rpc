@@ -3,10 +3,20 @@ package com.anas.cmusrpc.util;
 import com.anas.cmusrpc.track.Tag;
 import com.anas.cmusrpc.track.Track;
 
+/**
+ * It replaces all the tags in the format string with the corresponding values from the track
+ */
 public class PartFormatterUtil {
     private PartFormatterUtil() {
         throw new IllegalStateException("Utility class");
     }
+    /**
+     * It replaces all the tags in the format string with the corresponding values from the track
+     *
+     * @param partFormat The format string to be formatted.
+     * @param track The track to format
+     * @return A string with the tags replaced with the values of the tags.
+     */
     public static String format(String partFormat, Track track) {
         return partFormat
                 // Tags

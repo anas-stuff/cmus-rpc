@@ -19,6 +19,11 @@ public class CMUSTracker implements Runnable {
         intervalTimeIncrement = false;
     }
 
+    /**
+     * If the instance is null, create a new instance of CMUSTracker. Otherwise, return the existing instance
+     *
+     * @return The instance of the CMUSTracker class.
+     */
     public static CMUSTracker getInstance() {
         if (instance == null) {
             instance = new CMUSTracker();
@@ -31,7 +36,9 @@ public class CMUSTracker implements Runnable {
         Track track = new Track();
         while (true) {
             Responce r = Shell.getInstance().execute("cmus-remote -Q");
+            // Checking if the command executed successfully.
             if (!r.isError()) {
+                // Creating a new track object from the output of the cmus-remote command.
                 Track newTrack = Track.build(r.toString());
                 if (track.getTrackInfo() == null ||
                         !track.getTrackInfo().equals(newTrack.getTrackInfo())) {
@@ -40,15 +47,22 @@ public class CMUSTracker implements Runnable {
                     }
                     updateActivity(track, newTrack);
                 } else {
+                    // If the track is the same, sleep for a while.
                     sleep();
                 }
             } else {
+                // If cmus is not running, the program will stop if the linking is true. Otherwise, it will increment the
+                // interval time.
                 cmusNotRunning();
             }
+            // Sleeping the thread for a while.
             pauseLoop();
         }
     }
 
+    /**
+     * If the interval time is greater than the minimum interval time, then the interval time is halved
+     */
     private void resetIntervalTime() {
         ConfigsManger.getInstance().getConfigs().setInterval(ConfigsManger.getInstance().getConfigs().getInterval() / 2);
         intervalTimeIncrement = false;
@@ -56,6 +70,12 @@ public class CMUSTracker implements Runnable {
                 ConfigsManger.getInstance().getConfigs().getInterval());
     }
 
+    /**
+     * It updates the activity on Discord
+     *
+     * @param track The current track that is playing
+     * @param newTrack The track that is currently playing
+     */
     private void updateActivity(Track track, Track newTrack) {
         track.update(newTrack);
         if (discordController != null) {
@@ -71,6 +91,9 @@ public class CMUSTracker implements Runnable {
         }
     }
 
+    /**
+     * If the sleepTime is greater than or equal to the sleepTime in the configs, then remove the activity from Discord
+     */
     private void sleep() {
         sleepTime += ConfigsManger.getInstance().getConfigs().getInterval();
         if (sleepTime >= ConfigsManger.getInstance().getConfigs().getSleepTime()) {
@@ -79,6 +102,10 @@ public class CMUSTracker implements Runnable {
         }
     }
 
+    /**
+     * If CMUS is not running, stop the program if linking is enabled, otherwise double the interval time and update the
+     * Discord activity
+     */
     private void cmusNotRunning() {
         DebugManager.getInstance().debug("CMUS not running");
         // Stop the program if the linking true
@@ -94,6 +121,9 @@ public class CMUSTracker implements Runnable {
         }
     }
 
+    /**
+     * Sleep for a certain amount of time
+     */
     private void pauseLoop() {
         // Sleep
         try {
@@ -104,6 +134,13 @@ public class CMUSTracker implements Runnable {
         }
     }
 
+    /**
+     * "This function sets the discordController variable to the discordController variable passed in as a parameter."
+     *
+     * Now that we have a way to set the discordController variable, we need to set it
+     *
+     * @param discordController The DiscordController object that is used to send messages to the Discord channel.
+     */
     public void setDiscordController(DiscordController discordController) {
         this.discordController = discordController;
     }

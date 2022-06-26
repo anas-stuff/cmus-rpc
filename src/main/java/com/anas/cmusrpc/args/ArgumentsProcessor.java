@@ -1,24 +1,29 @@
 package com.anas.cmusrpc.args;
 
 import com.anas.cmusrpc.DebugManager;
-import com.anas.cmusrpc.MainController;
+import com.anas.cmusrpc.Main;
 import com.anas.cmusrpc.configs.ConfigsManger;
 import org.apache.commons.cli.*;
 
+/**
+ * It processes the arguments and sets the configuration
+ */
 public class ArgumentsProcessor {
-    private Options options;
-    private CommandLineParser parser;
-    private final String[] args;
+    private final Options options;
 
-    public ArgumentsProcessor(String[] args) {
-        initialize();
+    public ArgumentsProcessor() {
+        options = new Options();
         setupOptions();
-        this.args = args;
     }
 
-    public void process() {
+    /**
+     * It parses the command line arguments, checks if they are valid, and if not, shows the help message and exits.
+     *
+     * @param args The arguments passed to the program.
+     */
+    public void process(final String[] args) {
         try {
-            CommandLine commandLine = parser.parse(options, args);
+            CommandLine commandLine = new DefaultParser().parse(options, args);
             check(commandLine);
         } catch (ParseException e) {
             System.out.println("Error: " + e.getMessage());
@@ -26,17 +31,28 @@ public class ArgumentsProcessor {
         }
     }
 
+    /**
+     * If the user has specified the -h option, show the help. If the user has specified the -v option, show the version.
+     * Otherwise, check the other options
+     *
+     * @param commandLine The command line object that contains the options and arguments.
+     */
     private void check(CommandLine commandLine) {
         if (commandLine.hasOption("h")) {
             showHelp();
         } else if (commandLine.hasOption("v")) {
-            System.out.println("Version: " + MainController.VERSION);
+            System.out.println("Version: " + Main.VERSION);
             System.exit(0);
         } else {
             checkMultiOptions(commandLine);
         }
     }
 
+    /**
+     * A function that checks the command line options.
+     *
+     * @param commandLine The object that contains the parameters passed in by the user.
+     */
     private void checkMultiOptions(CommandLine commandLine) {
         if (commandLine.hasOption("d")) {
             DebugManager.getInstance().setDebug(true);
@@ -64,13 +80,19 @@ public class ArgumentsProcessor {
         }
     }
 
+    /**
+     * It prints out the help message and exits the program
+     */
     private void showHelp() {
         new HelpFormatter()
-                .printHelp("java -jar jcmusintegrationwithdiscord.jar [OPTION] [VALUE] [OPTION] [VALUE] ...",
+                .printHelp("cmus-rpc [OPTION] [VALUE] [OPTION] [VALUE] ...",
                         options);
         System.exit(0);
     }
 
+    /**
+     * It adds options to the options object
+     */
     private void setupOptions() {
         options.addOption("h", "help", false, "Show this help");
         options.addOption("v", "version", false, "Show version");
@@ -81,10 +103,5 @@ public class ArgumentsProcessor {
         options.addOption("s", "sleep", true, "Set sleep when there is no activity (in seconds)");
         options.addOption("p1f", "partOneFormat", true, "Set the format for the first part");
         options.addOption("p2f", "partTowFormat", true, "Set the format for the second part");
-    }
-
-    private void initialize() {
-        options = new Options();
-        parser = new DefaultParser();
     }
 }
