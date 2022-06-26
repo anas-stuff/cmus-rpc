@@ -1,6 +1,6 @@
-package com.anas.jcmusintegrationwithdiscord.configs;
+package com.anas.cmusrpc.configs;
 
-import com.anas.jcmusintegrationwithdiscord.DebugManager;
+import com.anas.cmusrpc.DebugManager;
 
 public class Configs {
     private int interval;

@@ -1,4 +1,4 @@
-package com.anas.jcmusintegrationwithdiscord.track;
+package com.anas.cmusrpc.track;
 
 public class TrackTime {
     private int minutes;

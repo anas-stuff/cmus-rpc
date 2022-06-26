@@ -1,6 +1,6 @@
-package com.anas.jcmusintegrationwithdiscord.configs;
+package com.anas.cmusrpc.configs;
 
-import com.anas.jcmusintegrationwithdiscord.DebugManager;
+import com.anas.cmusrpc.DebugManager;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

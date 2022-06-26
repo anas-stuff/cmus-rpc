@@ -1,7 +1,7 @@
-package com.anas.jcmusintegrationwithdiscord.util;
+package com.anas.cmusrpc.util;
 
-import com.anas.jcmusintegrationwithdiscord.track.Tag;
-import com.anas.jcmusintegrationwithdiscord.track.Track;
+import com.anas.cmusrpc.track.Tag;
+import com.anas.cmusrpc.track.Track;
 
 public class PartFormatterUtil {
     private PartFormatterUtil() {

@@ -1,5 +1,4 @@
-# JCMUSIntegrationWithDiscord - A Discord integration for CMUS
-I know the name is terrible but that's where I'm at right now :P
+# A Discord Rich Presence for cmus player
 
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JCmusIntegrationWithDiscord&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JCmusIntegrationWithDiscord)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Anas-Elgarhy_JCmusIntegrationWithDiscord&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Anas-Elgarhy_JCmusIntegrationWithDiscord)

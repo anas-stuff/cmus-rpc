@@ -1,11 +1,11 @@
-package com.anas.jcmusintegrationwithdiscord.teracke;
+package com.anas.cmusrpc.teracke;
 
-import com.anas.jcmusintegrationwithdiscord.DebugManager;
-import com.anas.jcmusintegrationwithdiscord.configs.ConfigsManger;
-import com.anas.jcmusintegrationwithdiscord.discord.DiscordController;
-import com.anas.jcmusintegrationwithdiscord.shell.Responce;
-import com.anas.jcmusintegrationwithdiscord.shell.Shell;
-import com.anas.jcmusintegrationwithdiscord.track.Track;
+import com.anas.cmusrpc.DebugManager;
+import com.anas.cmusrpc.configs.ConfigsManger;
+import com.anas.cmusrpc.discord.DiscordController;
+import com.anas.cmusrpc.shell.Responce;
+import com.anas.cmusrpc.shell.Shell;
+import com.anas.cmusrpc.track.Track;
 
 public class CMUSTracker implements Runnable {
     private static CMUSTracker instance;

@@ -1,6 +1,6 @@
-package com.anas.jcmusintegrationwithdiscord.track;
+package com.anas.cmusrpc.track;
 
-import com.anas.jcmusintegrationwithdiscord.util.CMUSOutParserUtil;
+import com.anas.cmusrpc.util.CMUSOutParserUtil;
 
 import java.util.EnumMap;
 import java.util.Map;
