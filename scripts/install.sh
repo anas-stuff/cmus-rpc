@@ -8,7 +8,7 @@ fi
 
 
 INSTALL_PATH=/usr/share/java/cmus-rpc
-VERSION=2.0.0
+VERSION=2.0.1
 
 mkdir -p "$INSTALL_PATH"
 
