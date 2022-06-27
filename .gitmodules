@@ -1,0 +1,3 @@
+[submodule "archpackage/cmus-rpc"]
+	path = archpackage/cmus-rpc
+	url = ssh://aur@aur.archlinux.org/cmus-rpc.git
