@@ -88,7 +88,7 @@ cmus-rpc -p1f "Anas listening to %title%" -p2f "From %artist%"
 
 ### Recourses
 - [`cmus-remote` tool](https://github.com/cmus/cmus) to the make a query to the cmus
-- [Discord-RPC library](https://github.com/Vatuu/discord-rpc) to send the information to Discord
+- [Discord-RPC library](https://github.com/Vatuu/discord-rpc) to create a discord rich presence
 - [The Discord API](https://discordapp.com/developers/docs/intro) to learn more about RPC
 - [commons-clib2 library](https://github.com/apache/commons-cli) to parse the command line arguments
 - [jackson library](https:github.com/FasterXML/jackson-databind) to save the config.json and load it
