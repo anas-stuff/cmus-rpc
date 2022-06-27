@@ -25,20 +25,20 @@
 ### Linux
 - From aur: `yay -S cmus-rpc`
 - Manual:
-- Make sure you installed `wget`
-- Run this command
-   ```bash
-    curl -s https://raw.githubusercontent.com/Anas-Elgarhy/cmus-rpc/master/scripts/install.sh | sudo bash
-   ```
+  - Make sure you installed `wget`
+  - Run this command
+     ```bash
+      curl -s https://raw.githubusercontent.com/Anas-Elgarhy/cmus-rpc/master/scripts/install.sh | sudo bash
+     ```
 
 ## Uninstall
 
 ### Linux
 - Manual:
-- Run this command
-  ```bash
-    curl -s https://raw.githubusercontent.com/Anas-Elgarhy/cmus-rpc/master/scripts/uninstall.sh | sudo bash
-  ```
+  - Run this command
+    ```bash
+      curl -s https://raw.githubusercontent.com/Anas-Elgarhy/cmus-rpc/master/scripts/uninstall.sh | sudo bash
+    ```
 
 
 - Requirements for development:
