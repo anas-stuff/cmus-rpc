@@ -27,4 +27,4 @@ package() {
     sudo install -Dm644 "./$pkgname.jar" "/usr/share/java/$pkgname/$pkgname.jar"
     sudo install -Dm777 "./$pkgname.sh" "/bin/$pkgname"
 }
-sha256sums=('9ac11cc9475f790eb91615edca198162ad43eae2e313f0885a3f067df3afe7d8')
+sha256sums=('f37bb0d661e43d5c86bf6d80b259fdf648cce0699944a33157a01b3f5e5b9d60')
