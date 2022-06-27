@@ -14,7 +14,7 @@ mkdir -p "$INSTALL_PATH"
 
 echo "Install version: $VERSION"
 echo "Downloading jar file..."
-sudo wget "https://github.com/Anas-Elgarhy/cmus-rpc/releases/download/$VERSION/cmus-rpc.jar"
+sudo wget "https://github.com/anas-elagarhy/cmus-rpc/releases/download/$VERSION/cmus-rpc.jar"
 sudo mv ./cmus-rpc.jar "$INSTALL_PATH"/cmus-rpc.jar
 
 printf "\nDownloaded in %s/cmus-rpc.jar\n" $INSTALL_PATH
